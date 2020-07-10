@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+
+    <script src="plugins/pace/pace.min.js"></script>
+
+</head>
+<body>
+    <div id="container" class="effect mainnav-lg">
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="boxed">
+            <div id="content-container">
+                <div class="col-lg-12">
+                    <div class="col-md-6">
+                        <div class="col-md-6" style="padding-right: 0px;">
+                            <h1 class="page-header text-overflow">Portfolio Workflow </h1>
+                        </div>
+
+                    </div>
+                    <!-- <div class="col-md-4"></div>-->
+                    <div class="col-md-6" style="padding-right: 0px; text-align: right;">
+                        <br />
+                        <a href="#">
+                            <i class="fa fa-search-plus  fa-2x" title="Zoom In" onclick="onZoomIn();" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <a href="#">
+                            <i class="fa fa-search-minus  fa-2x" title="Zoom Out" onclick="onZoomOut();" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <a href="#">
+                            <i class="fa fa-search  fa-2x" title="Reset" onclick="onResetZoom();" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <a href="#">
+                            <i class="fa fa-arrow-right fa-2x" title="Left to Right" onclick="applyLeftToRight();" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <a href="#">
+                            <i class="fa fa-arrow-down fa-2x" title="Top to Bottom" onclick="applyTopToBottom();" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;
+                        <button class="btn btn-mint" onclick="portfolioDownloadFlowChart();">Download</button>
+                        <a class="fileDownloadPromise" id="a123456" href="#" style="display: none;"></a>
+                        <button class="btn btn-primary" onclick="goBack();">Back</button>
+                    </div>
+                </div>
+
+                <div id="page-content" style="clear: left; padding: 0px 5px 0;">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <table style="width: 100%; margin: 12px;">
+                                <tr>
+                                    <td style="width: 9%;">
+                                        <b>Select Project:</b>
+                                    </td>
+
+                                    <td style="width: 16%;">
+                                        <select name="selectIndex" id="drpdwnProject"></select>
+                                    </td>
+
+                                    <td style="width: 10%;">
+                                        <b>Select WorkFlow:</b>
+                                    </td>
+
+                                    <td style="width: 14%;">
+                                        <select name="selectIndexWorkFlow" id="ddlWorkFlow"></select>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" id="hdnProjectId" name="hdnProjectId" />
+                                        <input type="hidden" id="hdnWorkflowId" name="hdnWorkflowId" />
+                                        <button class="btn btn-primary" id="btnsubmit" onclick="">Submit</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="col-md-12">
+                                <div class="parent">
+                                    <div class="innerScroll">
+                                        <canvas id="diagram" width="793" height="1122" style="cursor: default;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav id="mainnav-container" style="background-color: #c0c0c0;">
+            <div style="background-color: #c0c0c0;">
+                <h3 style="text-align: center;">Overview</h3>
+                <canvas id="overview" class="canvasOverview" width="166" height="235" style="width: 166px; height: 235px; margin-left: 79.5px; margin-top: 0px;"></canvas>
+            </div>
+        </nav>
+        <footer id="footer">
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </footer>
+    </div>
+    <div class="modal">
+        <img src="images/ajax-loader.gif" alt="" />
+    </div>
+<div class="container">
+    <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+        <div class="modal-dialog" style="width: 45%;">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
+                </div>
+                <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                    <div class="col-md-12">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    Are you sure you want to Approve this project to Freeze for Audit?
+                                </td>
+                            </tr>
+                            <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                            <tr>
+                                <td>
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                            <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <input id="project-freeze-id" type="hidden" value="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+        <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Freeze Associated Items (Tags)</h4>
+                </div>
+                <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 20%;">
+                                Project Selected:
+                            </td>
+                            <td id="td-selected-project"></td>
+                        </tr>
+                        <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                        <tr>
+                            <td>
+                                Comments:
+                            </td>
+                            <td>
+                                <textarea rows="5" style="margin: 0; width: 400px; height: 70px;" id="txtComments" placeholder="Freeze Comments(optional)"></textarea>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 15%;">
+                                            <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <link href="syncfusion/css/web/bootstrap-theme/ej.theme.min.css" rel="stylesheet" />
+    <link href="syncfusion/css/web/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" />
+    <link href="syncfusion/css/web/ej.widgets.core.min.css" rel="stylesheet" />
+    <script src="syncfusion/scripts/common/ej.core.min.js"></script>
+    <script src="syncfusion/external/jquery.easing.1.3.min.js"></script>
+    <script src="syncfusion/external/jsrender.min.js"></script>
+    <script src="syncfusion/scripts/web/ej.web.all.min.js"></script>
+    <!-- <script src="syncfusion/scripts/web/ej.checkbox.min.js"></script>-->
+    <script src="scripts/flowchart/MicrosoftAjax.js"></script>
+    <script src="scripts/flowchart/MindFusion.Diagramming.js"></script>
+    <script src="plugins/bootbox/bootbox.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<script src="scripts/baseaddressJs.js"></script>
+    <!--<script src="scripts/checklicense.js"></script>-->
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/commonJs.js"></script>
+    <script src="scripts/version.js"></script>
+    <script src="scripts/portfolioworkflow.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page | floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="css/nifty.min.css" rel="stylesheet">
+
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Create your own class to load custum image [ SAMPLE ]-->
+    <style>
+        .demo-my-bg {
+            background-image: url("img/balloon.jpg");
+        }
+    </style>
+
+
+
+
+    <!--SCRIPT-->
+    <!--=================================================-->
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="css/pace.min.css" rel="stylesheet">
+    <link href="css/sitemain.css" rel="stylesheet" />
+
+    <!--
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+
+    Detailed information and more samples can be found in the document.
+
+    -->
+
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+    <div id="container" class="cls-container">
+
+        <!-- BACKGROUND IMAGE -->
+        <!--===================================================-->
+        <div id="bg-overlay" class="bg-img demo-my-bg"></div>
+
+
+        <!-- HEADER -->
+        <!--===================================================-->
+        <div class="cls-header cls-header-lg" style="background-color: #282724;">
+            <div class="cls-brand">
+                <a class="box-inline" href="landing.html">
+                    <!-- <img alt="Nifty Admin" src="img/logo.png" class="brand-icon"> -->
+                    <span>
+                        <img src="img/logo.png"><span class="brand-title"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font> - <span class="text-thin">Login</span></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="cls-content">
+            <div class="cls-content-sm panel">
+                <div class="panel-body">
+                    <p class="pad-btm">Sign In to your account</p>
+                    <form action="UserLogin.ashx" method="post" id="LoginForm"
+                          accept-charset="UTF-8">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                <input type="text" id="TxtUserName" name="TxtUserName" class="form-control" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-asterisk"></i>
+                                </div>
+                                <input type="password" id="TxtPassword" name="TxtPassword" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div id="tdError" class="xyz">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8 text-left checkbox">
+                            </div>
+                            <div class="col-xs-4 xyz">
+                                <!-- <div class="form-group text-right">
+                                     <button class="btn btn-success text-uppercase" id="BtnLogin" type="button">Sign In</button>
+                                 </div>-->
+                                <div class="form-group text-right">
+                                    <button class="btn btn-success text-uppercase" id="Button1" type="submit">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="pad-ver">
+                <a href="#" class="btn-link mar-rgt">Forgot password ?</a>
+                <a href="#" class="btn-link mar-lft">Create a new account</a>
+            </div>
+        </div>
+        <!--===================================================-->
+
+
+
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="scripts/userlogin.js"></script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.min.js"></script>
+
+ 
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+    <script type="text/javascript">
+        function writeData(data) {
+
+        }
+    </script>
+
+</body>
+</html>

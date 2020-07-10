@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test page for WEB API: JWT token authentication and authorization</title>
+</head>
+<body>
+    <div style="width: 100%;">
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <input type="button" onclick="executeToken();" value="Get Token" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea cols="25" style="width: 98%;" rows="4" id="txtTokenData"> </textarea>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <h4>Response:</h4>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td id="tdApiResult"></td>
+            </tr>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td id="tdError"></td>
+            </tr>
+        </table>
+        <table style="width: 100%; display: none;">
+            <tr>
+                <td style="width: 100%;">
+                    <form id="loginForm" method="post" enctype="application/x-www-form-urlencoded">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 8%;">
+                                    <label for="Username">Username</label>
+                                </td>
+                                <td>
+                                    <input id="Username" type="text" />
+                                    <input type="hidden" name="DecUsername" id="DecUsername" value="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="Password">Password</label>
+                                </td>
+                                <td>
+                                    <input id="Password" type="password" />
+                                    <input type="hidden" name="DecPassword" id="DecPassword" value="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Submit" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/aes.js"></script>
+    <script type="text/javascript" src="scripts/tokenJs.js"></script>
+</body>
+</html>

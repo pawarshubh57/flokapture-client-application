@@ -1,0 +1,857 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="css/sitemain.css" rel="stylesheet" />
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="plugins/chosen/chosen.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/fooTable/css/footable.core.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <link href="css/bootstrap-wizard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link href="css/smart_wizard.css" rel="stylesheet" />
+    <link href="css/jquery.jsonview.css" rel="stylesheet" />
+    <style type="text/css">
+        .panel .panel-default {
+            margin-bottom: 5px;
+        }
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+            [type="radio"]:checked + label,
+            [type="radio"]:not(:checked) + label {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                color: #000;
+            }
+
+                [type="radio"]:checked + label:before,
+                [type="radio"]:not(:checked) + label:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 18px;
+                    height: 18px;
+                    border: 1px solid #ddd;
+                    border-radius: 100%;
+                    background: #fff;
+                }
+
+                [type="radio"]:checked + label:after,
+                [type="radio"]:not(:checked) + label:after {
+                    content: '';
+                    width: 12px;
+                    height: 12px;
+                    background: #0f6de0;
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    border-radius: 100%;
+                    -webkit-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+                }
+
+                [type="radio"]:not(:checked) + label:after {
+                    opacity: 0;
+                    -webkit-transform: scale(0);
+                    transform: scale(0);
+                }
+
+                [type="radio"]:checked + label:after {
+                    opacity: 1;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+
+        .bs-example {
+            margin: 4px;
+            padding: 4px;
+        }
+
+        .panel-heading {
+            height: 42px;
+        }
+
+        i {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        /* The container */
+        .checkboxContainer {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            padding-top: 5px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        button {
+            width: 82px;
+        }
+        /* Hide the browser's default checkbox */
+        .checkboxContainer input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 23px;
+            width: 23px;
+            /*background-color: #a0b3ce;*/
+            border: 1px solid #a0b3ce;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .checkboxContainer:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .checkboxContainer input:checked ~ .checkmark {
+            background-color: #0f6de0;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .checkboxContainer input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .checkboxContainer .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .e-rowcell {
+            line-height: 30px !important;
+            padding-top: 0.1em !important;
+            padding-bottom: .5em !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="effect mainnav-lg">
+        <header id="navbar">
+            <div id="navbar-container">
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-right">
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled" style="display: none;">
+                        <li class="col-xs-4" data-content="Additional Sidebar" style="margin-top: 15px;">
+                            <a id="demo-toggle-aside" class="shortcut-grid" href="#">
+                                <i class="fa fa-thermometer"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--<div class="col-md-12" style="margin-top:20px;">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" id="btnDemoFirst">Demo First </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary" id="btnDemoSecond">Demo Second </button>
+                    </div>
+                </div>
+                <div class="col-md-12" style="height: 30px;">
+                </div>-->
+                <div id="page-content">
+                    <div class="panel panel-default">
+                        <div class="wizard" id="some-wizard" data-title="Impacts Document Generation" style="display:none;">
+                            <div class="wizard-card" data-cardname="Title / Description">
+                                <h3>Step 1 - Title / Description</h3>
+                                <div class="col-sm-12">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 20%;">
+                                                Title:
+                                            </td>
+                                            <td>
+                                                <input type="text" id="txtTitle" class="form-control" />
+                                            </td>
+                                        </tr>
+                                        <tr><td style="height: 5px;">&nbsp;</td></tr>
+                                        <tr>
+                                            <td>
+                                                Description:
+                                            </td>
+                                            <td>
+                                                <input type="text" id="txtDescription" class="form-control" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="wizard-card" data-cardname="Entity Objects">
+                                <h3>Step 2 - Entity Objects</h3>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td colspan="3">
+                                            <b> Select the Entity Objects to include/remove using the Include >> or Remove << buttons</b>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td rowspan="2">
+                                            <div id="listEntityObjects"></div>
+                                        </td>
+                                        <td style="width: 19%;">
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td>&nbsp;<button id="btnIncludeEntity" class="btn btn-success">Include >> </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;<button id="btnRemoveEntity" class="btn btn-info">Remove << </button></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td rowspan="2">
+                                            <div id="listSelectedEntityObject"></div>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px; ">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="3" style="padding-top: 10px;">
+                                            <label class="checkboxContainer">
+                                                Include Entity Schema
+                                                <input type="checkbox" id="chkEntitySchema">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="wizard-card" data-cardname="JCL">
+                                <h3>Step 3 - JCL</h3>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td colspan="3">
+                                            <b> Select the JCL to include/remove using the Include >> or Remove << buttons</b>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td rowspan="2">
+                                            <div id="listJclObjects"></div>
+                                        </td>
+                                        <td style="width: 19%;">
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td><button id="btnIncludeJcl" class="btn btn-success">Include >> </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><button id="btnRemoveJcl" class="btn btn-info">Remove << </button></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td rowspan="2">
+                                            <div id="listSelectedJclObject"></div>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-top: 10px;">
+                                            <label class="checkboxContainer">
+                                                Include Database Activities
+                                                <input id="chkDBActJCl" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Pseudo Code
+                                                <input id="chkPseudoJcl" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Source Code
+                                                <input id="chkSourceJCL" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <div class="wizard-card" data-cardname="Programs">
+                                <h3>Step 4 - Programs</h3>
+
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td colspan="3">
+                                            <b> Select the Programs to include/remove using the Include >> or Remove << buttons</b>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td rowspan="2">
+                                            <div id="listProgramsObjects"></div>
+                                        </td>
+                                        <td style="width: 19%;">
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td><button id="btnIncludePrograms" class="btn btn-success">Include >> </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><button id="btnRemovePrograms" class="btn btn-info" onclick="removeSelectedProgramsObject();">Remove << </button></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td rowspan="2">
+                                            <div id="listSelectedProgramsObject"></div>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-top: 10px;">
+                                            <label class="checkboxContainer">
+                                                Include Database Activities
+                                                <input id="chkDBActProg" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Pseudo Code
+                                                <input id="chkPseudoProg" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Source Code
+                                                <input id="chkSourceProg" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+                            <div class="wizard-card" data-cardname="Subroutines">
+                                <h3>Step 5 - Subroutines</h3>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td colspan="3">
+                                            <b>Select the Subroutines to include/remove using the Include >> or Remove << buttons</b>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td rowspan="2">
+                                            <div id="listSubroutinesObjects"></div>
+                                        </td>
+                                        <td style="width: 19%;">
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td><button id="btnIncludeSubroutines" class="btn btn-success">Include >> </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><button id="btnRemoveSubroutines" class="btn btn-info">Remove << </button></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td rowspan="2">
+                                            <div id="listSelectedSubroutinesObject"></div>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-top: 10px;">
+                                            <label class="checkboxContainer">
+                                                Include Database Activities
+                                                <input id="chkDBActSub" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Pseudo Code
+                                                <input id="chkPseudoSub" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Source Code
+                                                <input id="chkSourceSub" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="wizard-card" data-cardname="Includes">
+                                <h3>Step 6 - Includes</h3>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td colspan="3">
+                                            <b>Select the Includes to include/remove using the Include >> or Remove << buttons</b>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td rowspan="2">
+                                            <div id="listIncludesObjects"></div>
+                                        </td>
+                                        <td style="width: 19%;">
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td><button id="btnIncludeIncludes" class="btn btn-success">Include >> </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><button id="btnRemoveIncludes" class="btn btn-info">Remove << </button></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td rowspan="2">
+                                            <div id="listSelectedIncludesObject"></div>
+                                        </td>
+                                    </tr>
+                                    <tr><td style="height: 20px;">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-top: 10px;">
+                                            <label class="checkboxContainer">
+                                                Include Database Activities
+                                                <input id="chkDBActInc" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Pseudo Code
+                                                <input id="chkPseudoInc" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label class="checkboxContainer">
+                                                Include Source Code
+                                                <input id="chkSourceInc" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="wizard-card" data-cardname="Summary">
+                                <h3>Step 7 - Summary / Generate</h3>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td>
+                                            <b>Generating Impacts Document for selected items</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <!--<textarea id="divSummary" style="width: 99%; max-width: 99%; max-height: 99%; height: 99%; word-wrap: break-word;"></textarea>-->
+                                            <div id="tableXml" style="width: 100%; height: 300px; overflow: scroll;">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="wizard-card" data-cardname="Impacts Document Generation">
+                                <h3>Step 8 - Download</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div id="mainnav-menu-wrap" style="display: none;">
+        <div class="nano">
+            <div class="nano-content">
+                <ul id="mainnav-menu" class="list-group">
+                    <li class="list-header" style="display: none;">Navigation</li>
+                    <li class="active-link">
+                        <a href="landing.html">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="menu-title">
+                                <strong>Dashboard</strong>
+                                <span class="label label-success pull-right">Top</span>
+                            </span>
+                        </a>
+                    <li class="list-divider"></li>
+
+                    <li id="menuSiteAdmin">
+                        <a href="#">
+                            <i class="fa fa-cog fa-fw fa"></i>
+                            <span class="menu-title">
+                                <strong>Site Admin</strong>
+                            </span>
+                            <i class="arrow"></i>
+                        </a>
+                        <ul class="collapse">
+                            <li>
+                                <a href="review_logs.html">Review Logs</a>
+                            </li>
+                            <li class="list-divider"></li>
+                            <li>
+                                <a href="product_config.html">Product Config</a>
+                            </li>
+                            <li>
+                                <a href="db_config.html">DB Config</a>
+                            </li>
+                            <li class="list-divider"></li>
+                            <li>
+                                <a href="lic_details.html">License Details</a>
+                            </li>
+                            <li>
+                                <a href="pseudocode.html">Pseudo Code</a>
+                            </li>
+                            <li class="list-divider">  </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-sticky-note"></i><span class="menu-title"> Reports </span><i class="arrow"></i>
+                                </a>
+
+                                <ul class="collapse">
+                                    <li>
+                                        <a href="user_activity_report.html?opt=1">User Activity Report</a>
+                                    </li>
+                                    <li>
+                                        <a href="user_activity_report.html?opt=2">Missing Entities Report</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li id="menuSiteAdminDivider" class="list-divider"></li>
+                    <li id="menuClientAdmin">
+                        <a href="#">
+                            <i class="fa fa-plug"></i>
+                            <span class="menu-title">
+                                <strong>Client Admin</strong>
+                            </span>
+                            <i class="arrow"></i>
+                        </a>
+                        <ul class="collapse">
+                            <li>
+                                <a href="user_management.html">User Management</a>
+                            </li>
+                            <!-- <li>
+                                <a href="roles_admin.html">Roles & Groups</a>
+                            </li>-->
+                            <li>
+                                <a href="activity_audit.html">Activity Audit</a>
+                            </li>
+                            <li style="display: none;"><a href="loc_report.html">LoC Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-divider" id="menuClientAdminDivider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="menu-title">Project Admin</span>
+                            <i class="arrow"></i>
+                        </a>
+                        <ul class="collapse">
+                            <li>
+                                <a href="submit_new_projects.html">Submit New Project</a>
+                            </li>
+
+                            <li>
+                                <a href="load_projects.html">Load Project Workspace</a>
+                            </li>
+                            <li class="list-divider"></li>
+                            <li>
+                                <a href="view_rules.html">View Functions Catalog</a>
+                            </li>
+
+                            <li class="list-divider"></li>
+                            <li>
+                                <a href="task_queue.html">
+                                    <span class="menu-title">
+                                        <strong>Task Queue</strong>
+                                        <span class="pull-right badge badge-warning" id="cntTaskQueue"></span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                            <span class="menu-title"> Search</span>
+                            <i class="arrow"></i>
+                        </a>
+                        <ul class="collapse">
+                            <li>
+                                <a href="#" id="aQueryConsole">
+                                    <!--<span class="fa-stack fa-lg">
+                                        <i class="fa fa-square fa-stack-2x"></i>
+                                        <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+                                    </span>-->
+                                    <span class="menu-title">Keyword Search</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:showCustomView();">Object Search</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-gift"></i><span class="menu-title"> Inventory</span><i class="arrow"></i>
+                        </a>
+
+                        <ul class="collapse">
+                            <li>
+                                <a href="javascript:portfolioDownloadFlowChart()">Portfolio Workflow</a>
+                            </li>
+                            <li>
+                                <a href="javascript:downloadObjectConnectivityFlowchart()">Object Connectivity</a>
+                            </li>
+                            <li class="list-divider"></li>
+                            <li><a href="javascript:viewInventory();">View Inventory</a></li>
+                            <li>
+                                <a href="javascript:downloadInventoryPopup();">Download Inventory</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-sticky-note"></i><span class="menu-title"> Reports </span><i class="arrow"></i>
+                        </a>
+
+                        <ul class="collapse">
+                            <li>
+                                <a href="report.html?opt=1">Inventory Report</a>
+                            </li>
+                            <li>
+                                <a href="report.html?opt=3">Workflows Report</a>
+                            </li>
+                            <li class="list-divider"></li>
+                            <li>
+                                <a href="report.html?opt=2">Progress Report </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="custom-requirements.html">
+                            <i class="fa fa-file-word-o"></i><span class="menu-title"> Custom Impacts </span>
+                        </a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="menu-title"> Work Product</span>
+                            <i class="arrow"></i>
+                        </a>
+
+                        <ul class="collapse">
+                            <li>
+                                <a href="javascript:addSystemDescription();">System Description</a>
+                            </li>
+                            <li>
+                                <a href="javascript:showDictionaryDialog()">Object Dictionary</a>
+                            </li>
+
+                            <li class="list-divider"></li>
+                            <li>
+                                <a href="javascript:showCustomWorkflow();">Custom Workflow</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="list-divider"></li>
+                    <li class="list-header">OTHER</li>
+                    <li>
+                        <a href="my_profile.html">
+                            <i class="fa fa-th"></i>
+                            <span class="menu-title">
+                                My Profile
+                                <span class="label label-mint pull-right">New</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="mainnav-widget">
+                    <div class="show-small">
+                        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                            <i class="fa fa-desktop"></i>
+                        </a>
+                    </div>
+                    <div id="demo-wg-server" class="hide-small mainnav-widget-content">
+                        <ul class="list-group">
+                            <li class="list-header pad-no pad-ver">Product Status</li>
+                            <li class="mar-btm">
+                                <span class="label label-purple pull-right">75%</span>
+                                <p>License Period</p>
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar progress-bar-purple" style="width: 75%;">
+                                        <span class="sr-only">75%</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pad-ver">
+                                <a href="lic_details.html" class="btn btn-success btn-bock">View Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div>
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+    <div>
+        <input type="hidden" id="hdnDownloadPath" />
+    </div>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <script src="syncfusion/external/jquery-2.1.4.min.js"></script>
+    <script src="scripts/baseaddressJs.js"></script>
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/commonJs.js"></script>
+    <script src="scripts/version.js"></script>
+    <!--<script src="scripts/leftSitePanel.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/nifty.min.js"></script>
+    <script src="plugins/pace/pace.min.js"></script>
+    <script src="js/bootstrap-wizard.js"></script>
+    <!-- Include SmartWizard JavaScript source -->
+    <script type="text/javascript" src="js/jquery.smartWizard.min.js"></script>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+    <script src="js/json2html.js"></script>
+    <script src="js/jquery.jsonview.js"></script>
+    <script src="scripts/demo-custom-requirements.js"></script>
+</body>
+</html>

@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Comply & Audit Forensics w/INTELLIGENCE</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/nifty.min.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="plugins/fooTable/css/footable.core.css" rel="stylesheet">
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+</head>
+<body>
+    <div id="container" class="effect mainnav-lg">
+
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown" style="display: none;">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <i class="fa fa-bell fa-lg"></i>
+                                <span class="badge badge-header badge-danger">3</span>
+                            </a>
+
+                            <!--Notification dropdown menu-->
+                            <div class="dropdown-menu dropdown-menu-md with-arrow">
+                                <div class="pad-all bord-btm">
+                                    <p class="text-lg text-muted text-thin mar-no">You have 3 alerts.</p>
+                                </div>
+                                <div class="nano scrollable">
+                                    <div class="nano-content">
+                                        <ul class="head-list">
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-circle bg-primary">
+                                                            <i class="fa fa-comment fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Discovered relationships are waiting approval</div>
+                                                        <small class="text-muted">15 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <span class="badge badge-success pull-right">90%</span>
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-circle bg-danger">
+                                                            <i class="fa fa-hdd-o fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">HDD is full</div>
+                                                        <small class="text-muted">50 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap bg-info">
+                                                            <i class="fa fa-user fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">New users waiting for approval</div>
+                                                        <small class="text-muted">Last Update 2 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Dropdown footer-->
+                                <div class="pad-all bord-top">
+                                    <a href="#" class="btn-link text-dark box-block">
+                                        <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End notifications dropdown-->
+
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+
+
+                        <!--User dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs" id="userName"></div>
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+                                <!-- Dropdown heading -->
+                                <div class="pad-all bord-btm">
+                                    <span class="menu-title">
+                                        <strong><b>Total Projects:</b></strong>
+                                        <span class="pull-right badge badge-warning" id="cntProject"></span>
+                                    </span>
+                                </div>
+
+
+                                <!-- User dropdown menu -->
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i> Profile
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Dropdown footer -->
+                                <div class="pad-all text-right">
+                                    <a href="#" class="btn btn-primary" id="aLogout">
+                                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="boxed">
+            <div id="content-container">
+                <ol class="breadcrumb">
+
+                    <li class="active" style="font-size: 25px;">Coming soon  <a href="landing.html">Dashboard</a> </li>
+                </ol>
+
+                <div id="page-content">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+
+            <nav id="mainnav-container">
+                <div id="mainnav">
+
+                    <!--Shortcut buttons-->
+                    <!--================================-->
+                    <div id="mainnav-shortcut" style="display: none;">
+                        <ul class="list-unstyled">
+                            <li class="col-xs-4" data-content="Additional Sidebar">
+                                <a class="shortcut-grid">
+                                    <i class="fa fa-thermometer"></i>
+                                </a>
+                            </li>
+                            <li class="col-xs-4" data-content="Notification">
+                                <a class="shortcut-grid" href="review_flagged.html">
+                                    <i class="fa fa-bullhorn"></i>
+                                </a>
+                            </li>
+                            <li class="col-xs-4" data-content="Page Alerts">
+                                <a class="shortcut-grid" href="items_to_investigate.html">
+                                    <i class="fa fa-bell"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--================================-->
+                    <!--End shortcut buttons-->
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
+
+                                    <!--Category name-->
+                                    <li class="list-header" style="display: none;">Navigation</li>
+
+                                    <!--Menu list item-->
+                                    <li class="active-link">
+                                        <a href="landing.html">
+                                            <i class="fa fa-dashboard"></i>
+                                            <span class="menu-title">
+                                                <strong>Dashboard</strong>
+                                                <span class="label label-success pull-right">Top</span>
+                                            </span>
+                                        </a>
+                                    <li class="list-divider"></li>
+
+                                    </li>
+
+                                    <!--Menu list item-->
+                                    <li id="menuSiteAdmin">
+                                        <a href="#">
+                                            <i class="fa fa-cog fa-fw fa"></i>
+                                            <span class="menu-title">
+                                                <strong>Site Admin</strong>
+                                            </span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li>
+                                               <a href="javascript:showSideAdminPages('review_logs.html','Review Logs');">Review Logs</a>
+                                            </li>
+                                            <li class="list-divider"></li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('product_config.html','Product Config');">Product Config</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('db_config.html','DB Config');">DB Config</a>
+                                            </li>
+                                            <li class="list-divider"></li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('lic_details.html','License Details');">License Details</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('pseudocode.html','Pseudo Code');">Pseudo Code</a>
+                                            </li>
+                                            <li class="list-divider">  </li>
+                                            <li>
+                                               <a href="javascript:showSideAdminPages('user_activity_report.html?opt=1','User Activity Report');">User Activity Report</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="list-divider"></li>
+
+                                    <!--Menu list item-->
+                                    <li id="menuClientAdmin">
+                                        <a href="#">
+                                            <i class="fa fa-plug"></i>
+                                            <span class="menu-title">
+                                                <strong>Client Admin</strong>
+                                            </span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('user_management.html','User Management');">User Management</a>
+                                            </li>
+                                            <!-- <li>
+                                                <a href="roles_admin.html">Roles & Groups</a>
+                                            </li>-->
+                                            <!--<li>
+                                                <a href="activity_audit.html">Activity Audit</a>
+                                            </li>
+                                            <li style="display: none;">
+                                                <a href="loc_report.html">LoC Report</a>
+                                            </li>-->
+                                        </ul>
+                                    </li>
+
+                                    <li class="list-divider"></li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-briefcase"></i>
+                                            <span class="menu-title"><strong>floKapture&reg;  Activities</strong></span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('submit_new_projects.html','Submit New Project');">Submit New Project</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('load_projects.html','Load Project Workspace');">Load Project Workspace</a>
+                                            </li>
+                                            <li class="list-divider"></li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('view_rules.html','View Functions Catalog');">View Functions Catalog</a>
+                                            </li>
+
+                                            <li class="list-divider"></li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('task_queue.html','Task Queue');">
+                                                    <span class="menu-title">
+                                                        <strong>Task Queue</strong>
+                                                        <span class="pull-right badge badge-warning" id="cntTaskQueue"></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-divider"></li>
+                                    <li>
+                                        <a href="javascript:showSideAdminPages('custom-requirements.html','Custom Impacts');">
+                                            <i class="fa fa-file-word-o"></i>
+                                            <span class="menu-title"> Custom Impacts </span>
+                                        </a>
+                                    </li>
+
+                                    <li class="list-divider"></li>
+
+                                    <!--Menu list item-->
+                                    
+
+                                    <!--Category name-->
+                                    <li class="list-header">OTHER</li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="javascript:showSideAdminPages('my_profile.html','My Profile');">
+                                            <i class="fa fa-th"></i>
+                                            <span class="menu-title">
+                                                My Profile
+                                                <span class="label label-mint pull-right">New</span>
+                                            </span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+
+
+                                <!--Widget-->
+                                <!--================================-->
+                                <div class="mainnav-widget">
+
+                                    <!-- Show the button on collapsed navigation -->
+                                    <div class="show-small">
+                                        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                                            <i class="fa fa-desktop"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Hide the content on collapsed navigation -->
+                                    <div id="demo-wg-server" class="hide-small mainnav-widget-content">
+                                        <ul class="list-group">
+                                            <li class="list-header pad-no pad-ver">Product Status</li>
+                                            <!--<li class="mar-btm">
+                                                <span class="label label-primary pull-right">15%</span>
+                                                <p>Disk Space</p>
+                                                <div class="progress progress-sm">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 15%;">
+                                                        <span class="sr-only">15%</span>
+                                                    </div>
+                                                </div>
+                                            </li>-->
+                                            <li class="mar-btm">
+                                                <span class="label label-purple pull-right">75%</span>
+                                                <p>License Period</p>
+                                                <div class="progress progress-sm">
+                                                    <div class="progress-bar progress-bar-purple" style="width: 75%;">
+                                                        <span class="sr-only">75%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="pad-ver">
+                                                 <a href="javascript:showSideAdminPages('lic_details.html?opt=2','View Details');" class="btn btn-success btn-bock">View Details</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--================================-->
+                                <!--End widget-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+            <!--ASIDE-->
+            <!--===================================================-->
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+
+                            <!--Nav tabs-->
+                            <!--================================-->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-comments"></i>
+                                        <span class="badge badge-purple">7</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--==============================Projects Processed==-->
+                            <!--End nav tabs-->
+                            <!-- Tabs Content -->
+                            <!--================================-->
+                            <div class="tab-content">
+
+                                <!--First tab (Contact list)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">
+                                        <span class="pull-right badge badge-warning">3</span> Messages
+                                    </h4>
+
+                                    <!--Family-->
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Stephen Tran</div>
+                                                <span class="text-muted">Availabe</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Brittany Meyer</div>
+                                                <span class="text-muted">I think so</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-left">
+                                                <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="text-lg">Donald Brown</div>
+                                                <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+                                    <hr>
+                                </div>
+
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--End first tab (Contact list)-->
+                                <!--Second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+
+                                    <!--Simple Menu-->
+                                    <div class="list-group bg-trans">
+                                        <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                                        <a href="#" class="list-group-item">My Profile</a>
+                                        <a href="#" class="list-group-item">My Activity</a>
+                                        <hr>
+                                        <a href="#" class="list-group-item">License Details</a>
+                                    </div>
+
+
+                                    <hr>
+
+                                    <div class="text-center">
+                                        Questions?
+                                        <p class="text-lg text-semibold">(202) 674-3435 </p>
+                                    </div>
+                                </div>
+                                <!--End second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--Third tab (Settings)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-3">
+                                    <ul class="list-group bg-trans">
+                                        <li class="list-header">
+                                            <h4 class="text-thin">Account Settings</h4>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Login to Search</p>
+                                            <small class="text-muted">Take me directly to Search as default when I login.</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="pull-right">
+                                                <input class="demo-switch" type="checkbox" checked>
+                                            </div>
+                                            <p>Alert License Periods</p>
+                                            <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                                        </li>
+                                    </ul>
+
+
+                                    <hr>
+
+                                    <h4 class="pad-hor text-thin">Task Progress</h4>
+                                    <div class="pad-all">
+                                        <p>My Job Progress</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-success" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15% Completed</small>
+                                    </div>
+                                    <div class="pad-hor">
+                                        <p>Queue Size</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-danger" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">#Jobs before me</small>
+                                    </div>
+
+                                </div>
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--Third tab (Settings)-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--===================================================-->
+            <!--END ASIDE-->
+
+        </div>
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer">
+
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+
+
+
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+        <!-- SCROLL TOP BUTTON -->
+        <!--===================================================-->
+        <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+        <!--===================================================-->
+
+
+
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+
+
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="plugins/switchery/switchery.min.js"></script>
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+
+    <!--DataTables [ OPTIONAL ]-->
+    <script src="plugins/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="js/demo/nifty-demo.min.js"></script>
+
+
+    <!--DataTables Sample [ SAMPLE ]-->
+    <script src="js/demo/tables-datatables.js"></script>
+
+    <!--FooTable [ OPTIONAL ]-->
+    <script src="plugins/fooTable/dist/footable.all.min.js"></script>
+
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="js/demo/nifty-demo.min.js"></script>
+
+
+    <!--FooTable Example [ SAMPLE ]-->
+    <script src="js/demo/tables-footable.js"></script>
+    <script src="scripts/version.js"></script>
+    <!--
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+    Detailed information and more samples can be found in the document.
+
+    -->
+
+
+</body>
+</html>

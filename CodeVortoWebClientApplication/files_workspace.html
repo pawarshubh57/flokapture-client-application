@@ -1,0 +1,1210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+
+    <style type="text/css" media="screen">
+        body {
+            overflow: hidden;
+        }
+
+        #editor {
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 500px;
+        }
+
+        #miniedit {
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 500px;
+        }
+    </style>
+
+
+    <!--Open Sans Font [ OPTIONAL ] -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="css/nifty.min.css" rel="stylesheet">
+
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+
+    <link href="css/treeview.css" rel="stylesheet">
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--Animate.css [ OPTIONAL ]-->
+    <link href="plugins/animate-css/animate.min.css" rel="stylesheet">
+
+
+    <!--Morris.js [ OPTIONAL ]-->
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+
+    <!--Chosen [ OPTIONAL ]-->
+    <link href="plugins/chosen/chosen.min.css" rel="stylesheet">
+
+    <!--noUiSlider [ OPTIONAL ]-->
+    <link href="plugins/noUiSlider/jquery.nouislider.min.css" rel="stylesheet">
+    <link href="plugins/noUiSlider/jquery.nouislider.pips.min.css" rel="stylesheet">
+
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+
+    <!--FooTable [ OPTIONAL ]-->
+    <link href="plugins/fooTable/css/footable.core.css" rel="stylesheet">
+
+
+    <!--SCRIPT-->
+    <!--=================================================-->
+
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+
+
+
+    <!--
+
+	REQUIRED
+	You must include this in your project.
+
+	RECOMMENDED
+	This category must be included but you may modify which plugins or components which should be included in your project.
+
+	OPTIONAL
+	Optional plugins. You may choose whether to include it in your project or not.
+
+	DEMONSTRATION
+	This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+	SAMPLE
+	Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+	Detailed information and more samples can be found in the document.
+
+	-->
+
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+    <div id="container" class="effect mainnav-lg  aside-in">
+
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header">
+                    <a href="landing.html" class="navbar-brand">
+                        <img src="img/logo.png" alt="Logo" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+                        </div>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+
+
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa fa-navicon fa-lg"></i>
+                            </a>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End Navigation toogle button-->
+
+
+                        <!--Messages Dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <i class="fa fa-envelope fa-lg"></i>
+                                <span class="badge badge-header badge-warning">9</span>
+                            </a>
+
+                            <!--Message dropdown menu-->
+                            <div class="dropdown-menu dropdown-menu-md with-arrow">
+                                <div class="pad-all bord-btm">
+                                    <p class="text-lg text-muted text-thin mar-no">You have 3 messages.</p>
+                                </div>
+                                <div class="nano scrollable">
+                                    <div class="nano-content">
+                                        <ul class="head-list">
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="img/av2.png" alt="Profile Picture" class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Andy sent you a message</div>
+                                                        <small class="text-muted">15 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Lucy sent you a message</div>
+                                                        <small class="text-muted">30 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Jackson sent you a message</div>
+                                                        <small class="text-muted">40 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="img/av6.png" alt="Profile Picture" class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Donna sent you a message</div>
+                                                        <small class="text-muted">5 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Lucy sent you a message</div>
+                                                        <small class="text-muted">Yesterday</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Jackson sent you a message</div>
+                                                        <small class="text-muted">Yesterday</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Dropdown footer-->
+                                <!--<div class="pad-all bord-top">
+									<a href="#" class="btn-link text-dark box-block">
+										<i class="fa fa-angle-right fa-lg pull-right"></i>Show All Messages
+									</a>
+								</div>-->
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End message dropdown-->
+
+
+
+
+                        <!--Notification dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="dropdown" style="display: none;">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                <i class="fa fa-bell fa-lg"></i>
+                                <span class="badge badge-header badge-danger">3</span>
+                            </a>
+
+                            <!--Notification dropdown menu-->
+                            <div class="dropdown-menu dropdown-menu-md with-arrow">
+                                <div class="pad-all bord-btm">
+                                    <p class="text-lg text-muted text-thin mar-no">You have 3 alerts.</p>
+                                </div>
+                                <div class="nano scrollable">
+                                    <div class="nano-content">
+                                        <ul class="head-list">
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-circle bg-primary">
+                                                            <i class="fa fa-comment fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">Discovered relationships are waiting approval</div>
+                                                        <small class="text-muted">15 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <span class="badge badge-success pull-right">90%</span>
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap icon-circle bg-danger">
+                                                            <i class="fa fa-hdd-o fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">HDD is full</div>
+                                                        <small class="text-muted">50 minutes ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                            <!-- Dropdown list-->
+                                            <li>
+                                                <a href="#" class="media">
+                                                    <div class="media-left">
+                                                        <span class="icon-wrap bg-info">
+                                                            <i class="fa fa-user fa-lg"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="text-nowrap">New users waiting for approval</div>
+                                                        <small class="text-muted">Last Update 2 hours ago</small>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Dropdown footer-->
+                                <div class="pad-all bord-top">
+                                    <a href="#" class="btn-link text-dark box-block">
+                                        <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End notifications dropdown-->
+
+                    </ul>
+                    <ul class="nav navbar-top-links pull-right">
+
+
+
+
+
+
+                        <!--User dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="pull-right">
+                                    <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+                                </span>
+                                <div class="username hidden-xs">John Doe</div>
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+                                <!-- Dropdown heading  -->
+                                <div class="pad-all bord-btm">
+                                    <span class="menu-title">
+                                        <strong><b>Total Projects:</b></strong>
+                                        <span class="pull-right badge badge-warning" id="cntProject"></span>
+                                    </span>
+                                </div>
+
+
+                                <!-- User dropdown menu -->
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="my_profile.html">
+                                            <i class="fa fa-user fa-fw fa-lg"></i> Profile
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                                <!-- Dropdown footer -->
+                                <div class="pad-all text-right">
+                                    <a href="index.html" class="btn btn-primary">
+                                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End user dropdown-->
+
+                    </ul>
+                </div>
+                <!--================================-->
+                <!--End Navbar Dropdown-->
+
+            </div>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
+
+        <div class="boxed">
+
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+
+                <!--Page Title-->
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <div id="page-title">
+                    <h1 class="page-header text-overflow">Project Workspace</h1>
+
+                    <!--Searchbox-->
+                    <div class="searchbox">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search..">
+                            <span class="input-group-btn">
+                                <button class="text-muted" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <!--End page title-->
+
+
+                <!--Breadcrumb-->
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Project Admin</a></li>
+                    <li><a href="#">Load Project</a></li>
+                    <li class="active">Project Workspace</li>
+                </ol>
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <!--End breadcrumb-->
+
+
+
+
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content">
+                    Note: More info about editor APIs at: <a href="https://github.com/ajaxorg/ace/wiki/Embedding---API">https://github.com/ajaxorg/ace/wiki/Embedding---API</a>
+                    <br>
+                    Google groups for help: <a href="https://groups.google.com/forum/#!searchin/ace-discuss/insert$20text/ace-discuss/E_fXcNSUWCY/x9mPGfNgPJEJ">https://groups.google.com/forum/#!searchin/ace-discuss/insert$20text/ace-discuss/E_fXcNSUWCY/x9mPGfNgPJEJ</a>
+                    <br>
+                    <br>
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <a href="javascript:pasteText();">
+                                <button class="btn btn-success">Paste Text at Cursor Position</button></a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="javascript:toggleTheme();">
+                                <button class="btn btn-danger">Toggle Theme</button></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-lg-11">
+
+
+
+
+                        <div id="editor" style="height: 500px;" class="col-sm-12">
+                            package Solution;
+
+
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class UnsortedSetTest {
+
+	public static void main(String[] args) throws Exception {
+		String[] allFileNames = {"hounds.txt", "huckfinn.txt", "oz.txt", "war.txt", "ciaFactBook2008.txt"};
+		String[] noCIA = {"hounds.txt", "huckfinn.txt", "oz.txt", "war.txt"};
+		countWords(new BinarySearchTree<string>(), allFileNames[0]);
+		for(String s : allFileNames) {
+			System.out.println(s);
+			countWordsOurUnsortedSet(s);
+			countWordsOurBinarySearchTree(s);
+			countWordsOurHash(s);
+			countWordsCollection(new TreeSet<String>(), s);
+			int[] result = countWordsCollection(new HashSet<String>(), s);
+			System.out.println(result[0] + " total words.");
+			System.out.println(result[1] + " distinct words.");
+			System.out.println();
+			
+		}
+	}
+	
+	// return total num words, and num distinct words
+	public static int[] countWordsCollection(Collection<String> c, String fileName) throws Exception{
+		c.clear();
+		Scanner fileScanner = new Scanner(new File(fileName));  
+		Stopwatch st = new Stopwatch();
+		st.start();
+		int total = 0;
+		while(fileScanner.hasNext()){
+			c.add(fileScanner.next());
+			total++;
+		}
+		st.stop();
+		System.out.println("Time for " + c.getClass() + " : \n" + st);
+//        System.out.println(c.size() + " distinct words");
+//        System.out.println(total + " total words including duplicates: ");
+		assert total >= c.size();
+		System.out.println();
+		return new int[]{total, c.size()};
+	}
+	
+	
+	// GACKY GACKY GACKY repition. Look into removing repetition with reflection
+	// we assume there will be add and size methods
+	public static int[] countWordsOurHash(String fileName) throws Exception {
+		Scanner fileScanner = new Scanner(new File(fileName));  
+		Stopwatch st = new Stopwatch();
+		UnsortedHashSet<String> c = new UnsortedHashSet<String>();
+		st.start();
+		int total = 0;
+		while(fileScanner.hasNext()) {
+			c.add(fileScanner.next());
+			total++;
+		}
+		st.stop();
+		System.out.println("Time for our hashtable (closed address hashing): \n" + st);
+//        System.out.println(c.size() + " distinct words");
+//        System.out.println(total + " total words including duplicates: ");
+		assert total >= c.size();
+		System.out.println();
+		return new int[]{total, c.size()};
+	}
+	
+	public static int[] countWordsOurUnsortedSet(String fileName) throws Exception {
+		Scanner fileScanner = new Scanner(new File(fileName));  
+		Stopwatch st = new Stopwatch();
+		UnsortedSet<String> c = new UnsortedSet<String>();
+		st.start();
+		int total = 0;
+		while(fileScanner.hasNext()){
+			c.add(fileScanner.next());
+			total++;
+		}
+		st.stop();
+		System.out.println("Time for our unsorted set based on ArrayList: \n" + st);
+//        System.out.println(c.size() + " distinct words");
+//        System.out.println(total + " total words including duplicates: ");
+		assert total >= c.size();
+		System.out.println();
+		return new int[]{total, c.size()};
+	}
+	
+	public static int[] countWordsOurBinarySearchTree(String fileName) throws Exception {
+		Scanner fileScanner = new Scanner(new File(fileName));  
+		Stopwatch st = new Stopwatch();
+		BinarySearchTree<String> c = new BinarySearchTree<String>();
+		st.start();
+		int total = 0;
+		while(fileScanner.hasNext()){
+			c.add(fileScanner.next());
+			total++;
+		}
+		st.stop();
+		System.out.println("Time for our binary search tree: \n" + st);
+//        System.out.println(c.size() + " distinct words");
+//        System.out.println(total + " total words including duplicates: ");
+		assert total >= c.size();
+		System.out.println();
+		return new int[]{total, c.size()};
+	}
+	
+	
+	// a try at reflection. Not working on Binary Search tree from class. 
+	// Hunch. Due to add method taking in Comparable, not Object!
+	// Alterantives: search list of methods for name?
+	public static int[] countWords(Object c, String fileName) throws Exception {
+		Scanner fileScanner = new Scanner(new File(fileName));  
+		Stopwatch st = new Stopwatch();
+		System.out.println(Arrays.toString(c.getClass().getMethods()));
+		Method addMethod = c.getClass().getMethod("add", Object.class);
+		st.start();
+		int total = 0;
+		while(fileScanner.hasNext()){
+			addMethod.invoke(c, fileScanner.next());
+			total++;
+		}
+		st.stop();
+		System.out.println("Time for " + c.getClass() + ": "+ st);
+		Method sizeMethod = c.getClass().getMethod("size");
+		int distictWords = (Integer) sizeMethod.invoke(c);
+//        System.out.println(distictWords + " distinct words");
+//        System.out.println(total + " total words including duplicates: ");
+		System.out.println();
+		return new int[]{total, distictWords};
+	}
+}
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--===================================================-->
+                <!--End page content-->
+
+
+            </div>
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+
+
+
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            <nav id="mainnav-container">
+                <div id="mainnav">
+
+                    <!--Shortcut buttons-->
+                    <!--================================-->
+                    <div id="mainnav-shortcut" style="display: none;">
+                        <ul class="list-unstyled">
+                            <li class="col-xs-4" data-content="Additional Sidebar">
+                                <a class="shortcut-grid">
+                                    <i class="fa fa-thermometer"></i>
+                                </a>
+                            </li>
+                            <li class="col-xs-4" data-content="Notification">
+                                <a class="shortcut-grid" href="review_flagged.html">
+                                    <i class="fa fa-bullhorn"></i>
+                                </a>
+                            </li>
+                            <li class="col-xs-4" data-content="Page Alerts">
+                                <a class="shortcut-grid" href="items_to_investigate.html">
+                                    <i class="fa fa-bell"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--================================-->
+                    <!--End shortcut buttons-->
+
+
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <ul id="mainnav-menu" class="list-group">
+
+                                    <!--Category name-->
+                                    <li class="list-header" style="display: none;">Navigation</li>
+
+                                    <!--Menu list item-->
+                                    <li class="active-link">
+                                        <a href="landing.html">
+                                            <i class="fa fa-dashboard"></i>
+                                            <span class="menu-title">
+                                                <strong>Dashboard</strong>
+                                                <span class="label label-success pull-right">Top</span>
+                                            </span>
+                                        </a>
+                                        <li class="list-divider"></li>
+
+                                    </li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cog fa-fw fa"></i>
+                                            <span class="menu-title">
+                                                <strong>Site Admin</strong>
+                                            </span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li><a href="review_logs.html">Review Logs</a></li>
+                                            <li class="list-divider"></li>
+                                            <li><a href="product_config.html">Product Config</a></li>
+                                            <li><a href="db_config.html">DB Config</a></li>
+                                            <li class="list-divider"></li>
+                                            <li><a href="lic_details.html">License Details</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="list-divider"></li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-plug"></i>
+                                            <span class="menu-title">
+                                                <strong>Client Admin</strong>
+                                            </span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li><a href="user_management.html">User Management</a></li>
+                                            <!--<li><a href="roles_admin.html">Roles & Groups</a></li>-->
+                                            <li><a href="activity_audit.html">Activity Audit</a></li>
+                                            <li style="display: none;">
+                                                <a href="loc_report.html">LoC Report</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="list-divider"></li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-briefcase"></i>
+                                            <span class="menu-title">floKapture&reg;  Activities</span>
+                                            <i class="arrow"></i>
+                                        </a>
+
+                                        <!--Submenu-->
+                                        <ul class="collapse">
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('submit_new_projects.html','Submit New Project');">Submit New Project</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('load_projects.html','Load Project Workspace');">Load Project Workspace</a>
+                                            </li>
+                                            <li class="list-divider"></li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('view_rules.html','View Functions Catalog');">View Functions Catalog</a>
+                                            </li>
+
+                                            <li class="list-divider"></li>
+                                            <li>
+                                                <a href="javascript:showSideAdminPages('task_queue.html','Task Queue');">
+                                                    <span class="menu-title">
+                                                        <strong>Task Queue</strong>
+                                                        <span class="pull-right badge badge-warning" id="cntTaskQueue"></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="list-divider"></li>
+                                    <li>
+                                        <a href="javascript:showSideAdminPages('custom-requirements.html','Custom Impacts');">
+                                            <i class="fa fa-file-word-o"></i>
+                                            <span class="menu-title"> Custom Impacts </span>
+                                        </a>
+                                    </li>
+                                    <li class="list-divider"></li>
+
+                                   
+
+                                    <!--Category name-->
+                                    <li class="list-header">OTHER</li>
+
+                                    <!--Menu list item-->
+                                    <li>
+                                        <a href="javascript:showSideAdminPages('my_profile.html','My Profile');">
+                                            <i class="fa fa-th"></i>
+                                            <span class="menu-title">
+                                                My Profile
+                                                <span class="label label-mint pull-right">New</span>
+                                            </span>
+                                        </a>
+                                    </li>
+
+
+
+                                </ul>
+
+
+                                <!--Widget-->
+                                <!--================================-->
+                                <div class="mainnav-widget">
+
+                                    <!-- Show the button on collapsed navigation -->
+                                    <div class="show-small">
+                                        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                                            <i class="fa fa-desktop"></i>
+                                        </a>
+                                    </div>
+
+                                    <!-- Hide the content on collapsed navigation -->
+                                    <div id="demo-wg-server" class="hide-small mainnav-widget-content">
+                                        <ul class="list-group">
+                                            <li class="list-header pad-no pad-ver">Server Status</li>
+                                            <li class="mar-btm">
+                                                <span class="label label-primary pull-right">15%</span>
+                                                <p>Disk Space</p>
+                                                <div class="progress progress-sm">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 15%;">
+                                                        <span class="sr-only">15%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mar-btm">
+                                                <span class="label label-purple pull-right">75%</span>
+                                                <p>License Period</p>
+                                                <div class="progress progress-sm">
+                                                    <div class="progress-bar progress-bar-purple" style="width: 75%;">
+                                                        <span class="sr-only">75%</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="pad-ver"> <a href="javascript:showSideAdminPages('lic_details.html?opt=2','View Details');" class="btn btn-success btn-bock">View Details</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--================================-->
+                                <!--End widget-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+
+            <!--ASIDE-->
+            <!--===================================================-->
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+
+                            <!--Nav tabs-->
+                            <!--================================-->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="fa fa-files-o"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="fa fa-file-text-o"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--================================-->
+                            <!--End nav tabs-->
+
+
+
+                            <!-- Tabs Content -->
+                            <!--================================-->
+                            <div class="tab-content">
+
+                                <!--First tab (Contact list)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                                    <h4 class="pad-hor text-thin">Project Files Explorer
+                                    </h4>
+                                    <hr />
+
+                                    <div class="css-treeview">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="item-0" /><label for="item-0">Foo_App</label>
+                                                <ul>
+                                                    <li>
+                                                        <input type="checkbox" id="item-0-0" /><label for="item-0-0">jsp</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="checkbox" id="item-0-0-0" /><label for="item-0-0-0">servlets</label>
+                                                                <ul>
+                                                                    <li><a href="./">login.srv</a></li>
+                                                                    <li><a href="./">welcome.srv</a></li>
+                                                                    <li><a href="./">register_user.srv</a></li>
+                                                                    <li><a href="./">send_boradcast.srv</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li><a href="./">login.jsp</a></li>
+                                                            <li><a href="./">welcome.jsp</a></li>
+                                                            <li><a href="./">register_user.jsp</a></li>
+                                                            <li><a href="./">send_boradcast.jsp</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" id="item-0-1" /><label for="item-0-1">com</label>
+                                                        <ul>
+                                                            <li><a href="./">businessLogin.java</a></li>
+                                                            <li><a href="./">processClaims.java</a></li>
+                                                            <li><a href="./">triggerBach.java</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" id="item-0-2" disabled="disabled" /><label for="item-0-2">utils</label>
+                                                        <ul>
+                                                            <li><a href="./">item</a></li>
+                                                            <li><a href="./">item</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="./">.project</a></li>
+                                                    <li><a href="./">config.xml</a></li>
+                                                    <li><a href="./">struts.xml</a></li>
+                                                    <li><a href="./">hibernate.xml</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="item-1" checked="checked" /><label for="item-1">support</label>
+                                                <ul>
+                                                    <li>
+                                                        <input type="checkbox" id="item-1-0" /><label for="item-1-0">framework</label>
+                                                        <ul>
+                                                            <li><a href="./">ssruts.java</a></li>
+                                                            <li><a href="./">timeer.java</a></li>
+                                                            <li><a href="./">compress.java</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="./">makesum.java</a></li>
+                                                    <li><a href="./">middleware.java</a></li>
+                                                    <li><a href="./">allinone.java</a></li>
+                                                    <li><a href="./">criteriaMatch.java</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+
+
+                                    <hr>
+                                </div>
+
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--End first tab (Contact list)-->
+
+
+                                <!--Second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <div class="tab-pane fade" id="demo-asd-tab-2">
+                                    <div class="col-sm-12">
+                                        <h4 class="pad-hor text-thin">Call Hierarchy
+                                        </h4>
+                                        <hr />
+                                        <div class="col-sm-12" align="center">
+                                            <img src="img/dependency.png">
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="row">
+                                        &nbsp;<hr>
+                                        &nbsp;
+                                    </div>
+                                    <h4 class="pad-hor text-thin">Data Dependency
+                                    </h4>
+                                    <hr />
+                                    <div class="col-sm-11" align="center">
+                                        <img src="img/datadep.png">
+                                    </div>
+                                </div>
+                                <!--End second tab (Custom layout)-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--===================================================-->
+            <!--END ASIDE-->
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer">
+
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="show-fixed pull-right">
+                <ul class="footer-list list-inline">
+                    <li>
+                        <p class="text-sm">Approved Users</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                        <div class="progress progress-sm progress-light-base">
+                            <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+            <p class="pad-lft">
+                &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+            </p>
+
+
+
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+
+
+        <!-- SCROLL TOP BUTTON -->
+        <!--===================================================-->
+        <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+        <!--===================================================-->
+
+
+
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+
+
+
+
+
+
+
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+
+    <!--jQuery [ REQUIRED ]-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="scripts/version.js"></script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+
+
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="plugins/switchery/switchery.min.js"></script>
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+
+    <!--Bootstrap Tags Input [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+
+
+    <!--Chosen [ OPTIONAL ]-->
+    <script src="plugins/chosen/chosen.jquery.min.js"></script>
+
+
+    <!--noUiSlider [ OPTIONAL ]-->
+    <script src="plugins/noUiSlider/jquery.nouislider.all.min.js"></script>
+
+
+    <!--Bootstrap Timepicker [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+
+
+    <!--Bootstrap Datepicker [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+
+    <!--Dropzone [ OPTIONAL ]-->
+    <script src="plugins/dropzone/dropzone.min.js"></script>
+
+
+    <!--Summernote [ OPTIONAL ]-->
+    <script src="plugins/summernote/summernote.min.js"></script>
+
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="js/demo/nifty-demo.min.js"></script>
+
+
+    <!--Form Component [ SAMPLE ]-->
+    <script src="js/demo/form-component.js"></script>
+
+    <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/Eclipse");
+        editor.session.setMode("ace/mode/java");
+
+        var miniedit = ace.edit("miniedit");
+        miniedit.setTheme("ace/theme/twilight");
+        miniedit.session.setMode("ace/mode/java");
+    </script>
+
+    <script>
+        var theme = "E";
+        function getText() {
+            var editor = ace.edit("editor");
+            var txt = editor.getCopyText();
+            //var miniedit = ace.edit("miniedit");
+            miniedit.selectAll();
+            miniedit.removeLines();
+            miniedit.moveCursorTo(1, 1);
+            miniedit.insert(txt);
+            //miniedit.insert (removeSpecials(editor.getCopyText()));
+            //document.getElementById("edit").innerHTML = txt;
+        }
+
+        function getAllText() {
+            var editor = ace.edit("editor");
+            editor.selectAll();
+            var txt = editor.getCopyText();
+            //var miniedit = ace.edit("miniedit");
+            miniedit.selectAll();
+            miniedit.removeLines();
+            miniedit.moveCursorTo(1, 1);
+            miniedit.insert(txt);
+            //miniedit.insert (removeSpecials(editor.getCopyText()));
+            //document.getElementById("edit").innerHTML = txt;
+        }
+
+        function pasteText() {
+            var editor = ace.edit("editor");
+            txt = "console.println('Here are the details....');\n console.println('FOO!!!!');";
+            editor.insert(txt);
+
+        }
+        function toggleTheme() {
+            var editor = ace.edit("editor");
+            if (theme == "E") {
+                editor.setTheme("ace/theme/twilight");
+                theme = "T";
+            }
+            else {
+                editor.setTheme("ace/theme/eclipse");
+                theme = "E";
+            };
+
+        }
+
+        function removeSpecials(str) {
+            //remove line breaks from str
+            var tab = RegExp("\\t", "g");
+            str = str.replace(tab, '');
+            str = str.replace(' ', '');
+            return str;
+        }
+
+    </script>
+
+    <!--
+
+	REQUIRED
+	You must include this in your project.
+
+	RECOMMENDED
+	This category must be included but you may modify which plugins or components which should be included in your project.
+
+	OPTIONAL
+	Optional plugins. You may choose whether to include it in your project or not.
+
+	DEMONSTRATION
+	This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+	SAMPLE
+	Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+	Detailed information and more samples can be found in the document.
+
+	-->
+
+
+</body>
+</html>

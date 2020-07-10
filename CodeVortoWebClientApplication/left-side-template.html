@@ -1,0 +1,239 @@
+﻿<div class="nano">
+    <div class="nano-content">
+        <ul id="mainnav-menu" class="list-group">
+            <li class="list-header" style="display: none;">Navigation</li>
+            <li class="active-link">
+                <a href="landing.html">
+                    <i class="fa fa-dashboard"></i>
+                    <span class="menu-title">
+                        <strong>Dashboard</strong>
+                        <span class="label label-success pull-right">Top</span>
+                    </span>
+                </a>
+            </li>
+            <li class="list-divider"></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                    <span class="menu-title"> Search</span>
+                    <i class="arrow"></i>
+                </a>
+                <ul class="collapse">
+                    <li>
+                        <a href="#" id="aQueryConsole">
+                            <span class="menu-title">Keyword Search</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:showCustomView('Object Search');">Object Search</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="list-divider"></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-gift"></i><span class="menu-title"> Inventory</span><i class="arrow"></i>
+                </a>
+
+                <ul class="collapse">
+                    <li>
+                        <a href="javascript:portfolioDownloadFlowChart('Portfolio Workflow')">Portfolio Workflow</a>
+                    </li>
+                    <li>
+                        <a href="javascript:downloadObjectConnectivityFlowchart('Object Connectivity')">Object Connectivity</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li><a href="javascript:viewInventory();">View Inventory</a></li>
+                    <li>
+                        <a href="javascript:downloadInventoryPopup();">Download Inventory</a>
+                    </li>
+                    <li><a href="javascript:viewDbSchema();">View DB Schema</a></li>
+
+                </ul>
+            </li>
+
+            <li class="list-divider"></li>
+
+            <li>
+                <a href="javascript:showSideAdminPages('custom-requirements.html','Custom Impacts');">
+                    <i class="fa fa-file-word-o"></i>
+                    <span class="menu-title"> Custom Impacts </span>
+                </a>
+            </li>
+            <li class="list-divider"></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-sticky-note"></i><span class="menu-title"> Reports </span><i class="arrow"></i>
+                </a>
+                <ul class="collapse">
+                    <li>
+                        <a href="javascript:showSideAdminPages('report.html?opt=1','Inventory Report');">Inventory Report</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('crud_activity_report.html?opt=2','DB Activity Report');">DB Activity Report</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('crud_activity_report.html?opt=1','Entity/Attribute Usage');">Entity/Attribute Usage</a>
+                    </li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('user_activity_report.html?opt=2','Unused Attributes');">Unused Attributes</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('report.html?opt=3','Workflows Report');">Workflows Report</a>
+                    </li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('report.html?opt=2','Progress Report');">Progress Report</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="list-divider"></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-cogs"></i>
+                    <span class="menu-title"> Work Product</span>
+                    <i class="arrow"></i>
+                </a>
+
+                <ul class="collapse">
+                    <li>
+                        <a href="javascript:addSystemDescription();">System Description</a>
+                    </li>
+                    <li>
+                        <a href="javascript:showDictionaryDialog()">Object Dictionary</a>
+                    </li>
+
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showCustomWorkflow();">Custom Workflow</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="list-divider"></li>
+
+            <li class="list-header">OTHER</li>
+            <li>
+                <a href="javascript:showSideAdminPages('my_profile.html','My Profile');">
+                    <i class="fa fa-th"></i>
+                    <span class="menu-title">
+                        My Profile
+                        <span class="label label-mint pull-right">New</span>
+                    </span>
+                </a>
+            </li>
+            <li class="list-divider"></li>
+            <li id="menuSiteAdmin">
+                <a href="#">
+                    <i class="fa fa-cog fa-fw fa"></i>
+                    <span class="menu-title">
+                        <strong>Site Admin</strong>
+                    </span>
+                    <i class="arrow"></i>
+                </a>
+                <ul class="collapse">
+                    <li>
+                        <a href="javascript:showSideAdminPages('review_logs.html','Review Logs');">Review Logs</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('product_config.html','Product Config');">Product Config</a>
+                    </li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('db_config.html','DB Config');">DB Config</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('lic_details.html','License Details');">License Details</a>
+                    </li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('pseudocode.html','Pseudo Code');">Pseudo Code</a>
+                    </li>
+                    <li class="list-divider"> </li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('user_activity_report.html?opt=1','User Activity Report');">User Activity Report</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="menuSiteAdminDivider" class="list-divider"></li>
+            <li id="menuClientAdmin">
+                <a href="#">
+                    <i class="fa fa-plug"></i>
+                    <span class="menu-title">
+                        <strong>Client Admin</strong>
+                    </span>
+                    <i class="arrow"></i>
+                </a>
+                <ul class="collapse">
+                    <li>
+                        <a href="javascript:showSideAdminPages('user_management.html','User Management');">User Management</a>
+                    </li>
+                    <!-- <li>
+                        <a href="roles_admin.html">Roles & Groups</a>
+                    </li>-->
+                    <!--<li>
+                        <a href="activity_audit.html">Activity Audit</a>
+                    </li>-->
+                    <li style="display: none;"><a href="loc_report.html">LoC Report</a></li>
+                </ul>
+            </li>
+            <li class="list-divider" id="menuClientAdminDivider"></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-briefcase"></i>
+                    <span class="menu-title">Project Admin</span>
+                    <i class="arrow"></i>
+                </a>
+                <ul class="collapse">
+                    <li>
+                        <a href="javascript:showSideAdminPages('submit_new_projects.html','Submit New Project');">Submit New Project</a>
+                    </li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('load_projects.html','Load Project Workspace');">Load Project Workspace</a>
+                    </li>
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('view_rules.html','View Functions Catalog');">View Functions Catalog</a>
+                    </li>
+
+                    <li class="list-divider"></li>
+                    <li>
+                        <a href="javascript:showSideAdminPages('task_queue.html','Task Queue');">
+                            <span class="menu-title">
+                                <strong>Task Queue</strong>
+                                <span class="pull-right badge badge-warning" id="cntTaskQueue"></span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="mainnav-widget">
+            <div class="show-small">
+                <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                    <i class="fa fa-desktop"></i>
+                </a>
+            </div>
+            <div id="demo-wg-server" class="hide-small mainnav-widget-content">
+                <ul class="list-group">
+                    <li class="list-header pad-no pad-ver">Product Status</li>
+                    <li class="mar-btm">
+                        <span class="label label-purple pull-right">75%</span>
+                        <p>License Period</p>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar progress-bar-purple" style="width: 75%;">
+                                <span class="sr-only">75%</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pad-ver">
+                        <a href="javascript:showSideAdminPages('lic_details.html?opt=2','View Details');" class="btn btn-success btn-bock">View Details</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

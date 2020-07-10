@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Ace Kitchen Sink</title>
+    <meta name="author" content="Fabian Jakobs">
+    <!--
+    Ace
+      version 1.2.3
+      commit  
+    -->
+
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+
+    #editor {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+		width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+
+<table cellspacing="0" width="100%">
+<tr>
+	<td width="500px">
+		<pre id="editor">  </pre>
+	</td>
+	<td>
+		<a href="javascript:getText();">Clear Selection</a>
+	</td>
+</tr>
+</table>
+
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/java");
+</script>
+
+<script>
+	function getText()
+	{
+		var editor = ace.edit("editor");
+		var txt = editor.getCopyText();
+		alert (txt);
+		txt = "This is what i inserted \n\n Again and again";
+		editor.insert(txt);
+	}
+
+</script>
+
+</body>
+</html>

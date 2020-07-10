@@ -1,0 +1,1468 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floKapture - Understand your CODE!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="css/nifty.min.css" rel="stylesheet">
+
+    <link href="css/themes/type-c/theme-ocean.css" rel="stylesheet">
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <link href="plugins/switchery/switchery.min.css" rel="stylesheet">
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link href="plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+
+
+    <!--Morris.js [ OPTIONAL ]-->
+    <link href="plugins/morris-js/morris.min.css" rel="stylesheet">
+
+
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+
+
+    <!--SCRIPT-->
+    <!--=================================================-->
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="plugins/pace/pace.min.js"></script>
+
+
+    <style type="text/css">
+        #colorLegends {
+            /*width: 775px;*/
+            width: 97%;
+            clear: both;
+            margin-top: 8px;
+            padding-top: 8px;
+        }
+
+            #colorLegends div {
+                float: left;
+                width: auto;
+                padding: 4px;
+            }
+
+        #Layouts {
+            /*width: 775px;*/
+            width: 97%;
+            clear: both;
+            margin-top: 0px;
+        }
+
+            #Layouts div {
+                float: left;
+                width: auto;
+                padding: 4px;
+            }
+
+        #colorLegends div span {
+            /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+            -webkit-border-radius: 4px;
+            -webkit-box-shadow: 1px 1px 1px 1px #DADADA;
+            /* Firefox 1-3.6 */
+            -moz-border-radius: 4px;
+            -moz-box-shadow: 1px 1px 1px 1px #DADADA;
+            /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+            border-radius: 4px;
+            box-shadow: 1px 1px 1px 1px #DADADA;
+        }
+
+
+        .divClass span {
+            background-color: #F5BD6A;
+            padding: 4px;
+        }
+
+        .divMissingClass span {
+            background-color: #C0C0C0;
+            padding: 4px;
+        }
+
+        .divStartingClass span {
+            background-color: #28C965;
+            padding: 4px;
+        }
+
+        #Layouts legend {
+            margin-bottom: 3px !important;
+        }
+    </style>
+
+    <!--
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+
+    Detailed information and more samples can be found in the document.
+
+    -->
+
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+<div id="container" class="effect mainnav-lg">
+
+<!--NAVBAR-->
+<!--===================================================-->
+<header id="navbar">
+<div id="navbar-container" class="boxed">
+
+<!--Brand logo & name-->
+<!--================================-->
+<div class="navbar-header">
+    <a href="landing.html" class="navbar-brand">
+        <img src="img/logo.png" alt="Logo" class="brand-icon">
+        <div class="brand-title">
+            <span class="brand-text"><font color="#ababab" style="font-style: italic;">flo</font><font color="#ffc000">Kapture</font></span>
+        </div>
+    </a>
+</div>
+<!--================================-->
+<!--End brand logo & name-->
+<!--Navbar Dropdown-->
+<!--================================-->
+<div class="navbar-content clearfix">
+<ul class="nav navbar-top-links pull-left">
+
+    <!--Navigation toogle button-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <li class="tgl-menu-btn">
+        <a class="mainnav-toggle" href="#">
+            <i class="fa fa-navicon fa-lg"></i>
+        </a>
+    </li>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End Navigation toogle button-->
+    <!--Messages Dropdown-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            <i class="fa fa-envelope fa-lg"></i>
+            <span class="badge badge-header badge-warning">9</span>
+        </a>
+
+        <!--Message dropdown menu-->
+        <div class="dropdown-menu dropdown-menu-md with-arrow">
+            <div class="pad-all bord-btm">
+                <p class="text-lg text-muted text-thin mar-no">You have 3 messages.</p>
+            </div>
+            <div class="nano scrollable">
+                <div class="nano-content">
+                    <ul class="head-list">
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <img src="img/av2.png" alt="Profile Picture" class="img-circle img-sm">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Andy sent you a message</div>
+                                    <small class="text-muted">15 minutes ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Lucy sent you a message</div>
+                                    <small class="text-muted">30 minutes ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Jackson sent you a message</div>
+                                    <small class="text-muted">40 minutes ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <img src="img/av6.png" alt="Profile Picture" class="img-circle img-sm">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Donna sent you a message</div>
+                                    <small class="text-muted">5 hours ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <img src="img/av4.png" alt="Profile Picture" class="img-circle img-sm">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Lucy sent you a message</div>
+                                    <small class="text-muted">Yesterday</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <img src="img/av3.png" alt="Profile Picture" class="img-circle img-sm">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Jackson sent you a message</div>
+                                    <small class="text-muted">Yesterday</small>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Dropdown footer-->
+            <div class="pad-all bord-top">
+                <a href="#" class="btn-link text-dark box-block">
+                    <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Messages
+                </a>
+            </div>
+        </div>
+    </li>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End message dropdown-->
+    <!--Notification dropdown-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <li class="dropdown" style="display: none;">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            <i class="fa fa-bell fa-lg"></i>
+            <span class="badge badge-header badge-danger">3</span>
+        </a>
+
+        <!--Notification dropdown menu-->
+        <div class="dropdown-menu dropdown-menu-md with-arrow">
+            <div class="pad-all bord-btm">
+                <p class="text-lg text-muted text-thin mar-no">You have 3 alerts.</p>
+            </div>
+            <div class="nano scrollable">
+                <div class="nano-content">
+                    <ul class="head-list">
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <span class="icon-wrap icon-circle bg-primary">
+                                        <i class="fa fa-comment fa-lg"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">Discovered relationships are waiting approval</div>
+                                    <small class="text-muted">15 minutes ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <span class="badge badge-success pull-right">90%</span>
+                                <div class="media-left">
+                                    <span class="icon-wrap icon-circle bg-danger">
+                                        <i class="fa fa-hdd-o fa-lg"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">HDD is full</div>
+                                    <small class="text-muted">50 minutes ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown list-->
+                        <li>
+                            <a href="#" class="media">
+                                <div class="media-left">
+                                    <span class="icon-wrap bg-info">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-nowrap">New users waiting for approval</div>
+                                    <small class="text-muted">Last Update 2 hours ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!--Dropdown footer-->
+            <div class="pad-all bord-top">
+                <a href="#" class="btn-link text-dark box-block">
+                    <i class="fa fa-angle-right fa-lg pull-right"></i>Show All Notifications
+                </a>
+            </div>
+        </div>
+    </li>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End notifications dropdown-->
+
+</ul>
+<ul class="nav navbar-top-links pull-right">
+
+
+
+
+
+
+    <!--User dropdown-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <li id="dropdown-user" class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+            <span class="pull-right">
+                <img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+            </span>
+            <div class="username hidden-xs">John Doe</div>
+        </a>
+
+
+        <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+            <!-- Dropdown heading -->
+            <div class="pad-all bord-btm">
+                <span class="menu-title">
+                    <strong><b>Total Projects:</b></strong>
+                    <span class="pull-right badge badge-warning" id="cntProject"></span>
+                </span>
+            </div>
+
+
+            <!-- User dropdown menu -->
+            <ul class="head-list">
+                <li>
+                    <a href="my_profile.html">
+                        <i class="fa fa-user fa-fw fa-lg"></i>Profile
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Dropdown footer -->
+            <div class="pad-all text-right">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fa fa-sign-out fa-fw"></i>Logout
+                </a>
+            </div>
+        </div>
+    </li>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End user dropdown-->
+
+</ul>
+</div>
+<!--================================-->
+<!--End Navbar Dropdown-->
+
+</div>
+</header>
+<!--===================================================-->
+<!--END NAVBAR-->
+
+<div class="boxed">
+
+<!--CONTENT CONTAINER-->
+<!--===================================================-->
+<div id="content-container">
+
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Object Dictionary</h1>
+
+        <!--Searchbox-->
+        <div class="searchbox">
+            <div class="input-group custom-search-form">
+                <input type="text" class="form-control" placeholder="Search..">
+                <span class="input-group-btn">
+                    <button class="text-muted" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="Div1">
+        <div class="row">
+        </div>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Project Admin</a></li>
+        <li><a href="#">Load Project</a></li>
+        <li class="#">Object Dictionary</li>
+    </ol>
+    <div id="page-content">
+        <div class="row">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#Classes" aria-controls="Classes" role="tab" data-toggle="tab">Classes</a></li>
+                <li role="presentation"><a href="#Methods" aria-controls="Methods" role="tab" data-toggle="tab">Methods</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="Classes">
+                    <div class="row form-control" style="padding-left: 3%; margin-left: 0%; margin-right: 0%;">
+                        <div class="col-md-6">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Class Names</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tdAllClasses"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="Methods">
+                    <div class="row form-control" style="padding-left: 3%; margin-left: 0%; margin-right: 0%;">
+                        <div class="col-md-6">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Method / Function Names</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tdAllMethods"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="showCustom" class="modal fade" role="dialog">
+</div>
+<nav id="mainnav-container">
+<div id="mainnav">
+<div id="mainnav-shortcut" style="display: none;">
+    <ul class="list-unstyled">
+        <li class="col-xs-4" data-content="Additional Sidebar">
+            <a class="shortcut-grid">
+                <i class="fa fa-thermometer"></i>
+            </a>
+        </li>
+        <li class="col-xs-4" data-content="Notification">
+            <a class="shortcut-grid" href="review_flagged.html">
+                <i class="fa fa-bullhorn"></i>
+            </a>
+        </li>
+        <li class="col-xs-4" data-content="Page Alerts">
+            <a class="shortcut-grid" href="items_to_investigate.html">
+                <i class="fa fa-bell"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="mainnav-menu-wrap">
+<div class="nano">
+<div class="nano-content">
+<ul id="mainnav-menu" class="list-group">
+<li class="list-header" style="display: none;">Navigation</li>
+<li class="active-link">
+    <a href="landing.html">
+        <i class="fa fa-dashboard"></i>
+        <span class="menu-title">
+            <strong>Dashboard</strong>
+            <span class="label label-success pull-right">Top</span>
+        </span>
+    </a>
+    <li class="list-divider"></li>
+
+</li>
+<li id="menuSiteAdmin" style="display: none;">
+    <a href="#">
+        <i class="fa fa-cog fa-fw fa"></i>
+        <span class="menu-title">
+            <strong>Site Admin</strong>
+        </span>
+        <i class="arrow"></i>
+    </a>
+    <ul class="collapse">
+        <li>
+            <a href="javascript:showSideAdminPages('review_logs.html','Review Logs');">Review Logs</a>
+        </li>
+        <li class="list-divider"></li>
+        <li>
+            <a href="javascript:showSideAdminPages('product_config.html','Product Config');">Product Config</a>
+        </li>
+        <li>
+            <a href="javascript:showSideAdminPages('db_config.html','DB Config');">DB Config</a>
+        </li>
+        <li class="list-divider"></li>
+        <li>
+            <a href="javascript:showSideAdminPages('lic_details.html','License Details');">License Details</a>
+        </li>
+        <li>
+            <a href="javascript:showSideAdminPages('pseudocode.html','Pseudo Code');">Pseudo Code</a>
+        </li>
+        <li class="list-divider">  </li>
+        <li>
+            <a href="javascript:showSideAdminPages('user_activity_report.html?opt=1','User Activity Report');">User Activity Report</a>
+        </li>
+    </ul>
+</li>
+
+<li id="menuSiteAdminDivider" style="display: none;" class="list-divider"></li>
+<li id="menuClientAdmin" style="display: none;">
+    <a href="#">
+        <i class="fa fa-plug"></i>
+        <span class="menu-title">
+            <strong>Client Admin</strong>
+        </span>
+        <i class="arrow"></i>
+    </a>
+    <ul class="collapse">
+        <li>
+            <a href="javascript:showSideAdminPages('user_management.html','User Management');">User Management</a>
+        </li>
+        <!-- <li>
+            <a href="roles_admin.html">Roles & Groups</a>
+        </li>-->
+        <!--<li>
+            <a href="activity_audit.html">Activity Audit</a>
+        </li>
+        <li style="display: none;">
+            <a href="loc_report.html">LoC Report</a>
+        </li>-->
+    </ul>
+</li>
+<li class="list-divider" id="menuClientAdminDivider" style="display: none;"></li>
+<li>
+    <a href="#">
+        <i class="fa fa-briefcase"></i>
+        <span class="menu-title">Project Admin</span>
+        <i class="arrow"></i>
+    </a>
+    <ul class="collapse">
+        <li>
+            <a href="javascript:showSideAdminPages('submit_new_projects.html','Submit New Project');">Submit New Project</a>
+        </li>
+        <li>
+            <a href="javascript:showSideAdminPages('load_projects.html','Load Project Workspace');">Load Project Workspace</a>
+        </li>
+        <li class="list-divider"></li>
+        <li>
+            <a href="javascript:showSideAdminPages('view_rules.html','View Functions Catalog');">View Functions Catalog</a>
+        </li>
+
+        <li class="list-divider"></li>
+        <li>
+            <a href="javascript:showSideAdminPages('task_queue.html','Task Queue');">
+                <span class="menu-title">
+                    <strong>Task Queue</strong>
+                    <span class="pull-right badge badge-warning" id="cntTaskQueue"></span>
+                </span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li class="list-divider"></li>
+<li>
+    <a href="#">
+        <i class="fa fa-search"></i>
+        <span class="menu-title"> Search</span>
+        <i class="arrow"></i>
+    </a>
+    <ul class="collapse">
+        <li>
+            <a href="#" id="aQueryConsole">
+                <!--<span class="fa-stack fa-lg">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+                </span>-->
+                <span class="menu-title">Keyword Search</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:showCustomView('Object Search');">Object Search</a>
+        </li>
+    </ul>
+</li>
+<li class="list-divider"></li>
+<li>
+    <a href="#">
+        <i class="fa fa-gift"></i><span class="menu-title"> Inventory</span><i class="arrow"></i>
+    </a>
+
+    <ul class="collapse">
+        <li>
+            <a href="javascript:portfolioDownloadFlowChart('Portfolio Workflow')">Portfolio Workflow</a>
+        </li>
+        <li>
+            <a href="javascript:downloadObjectConnectivityFlowchart('Object Connectivity')">Object Connectivity</a>
+        </li>
+        <li class="list-divider"></li>
+        <li><a href="javascript:viewInventory();">View Inventory</a></li>
+        <li>
+            <a href="javascript:downloadInventoryPopup();">Download Inventory</a>
+        </li>
+    </ul>
+</li>
+<li class="list-divider"></li>
+<li>
+    <a href="#">
+        <i class="fa fa-sticky-note"></i><span class="menu-title"> Reports </span><i class="arrow"></i>
+    </a>
+    <ul class="collapse">
+        <li>
+            <a href="javascript:showSideAdminPages('report.html?opt=1','Inventory Report');">Inventory Report</a>
+        </li>
+        <li>
+            <a href="javascript:showSideAdminPages('report.html?opt=3','Workflows Report');">Workflows Report</a>
+        </li>
+        <li class="list-divider"></li>
+        <li>
+            <a href="javascript:showSideAdminPages('report.html?opt=2','Progress Report');">Progress Report</a>
+        </li>
+    </ul>
+</li>
+<li class="list-divider"></li>
+<li>
+    <a href="javascript:showSideAdminPages('custom-requirements.html','Custom Impacts');">
+        <i class="fa fa-file-word-o"></i>
+        <span class="menu-title"> Custom Impacts </span>
+    </a>
+</li>
+<li class="list-divider"></li>
+<li>
+    <a href="#">
+        <i class="fa fa-cogs"></i>
+        <span class="menu-title"> Work Product</span>
+        <i class="arrow"></i>
+    </a>
+
+    <ul class="collapse">
+        <li>
+            <a href="javascript:addSystemDescription();">System Description</a>
+        </li>
+        <li>
+            <a href="javascript:showDictionaryDialog()">Object Dictionary</a>
+        </li>
+
+        <li class="list-divider"></li>
+        <li>
+            <a href="javascript:showCustomWorkflow();">Custom Workflow</a>
+        </li>
+    </ul>
+</li>
+
+<li class="list-divider"></li>
+<li class="list-header">OTHER</li>
+<li>
+    <a href="javascript:showSideAdminPages('my_profile.html','My Profile');">
+        <i class="fa fa-th"></i>
+        <span class="menu-title">
+            My Profile
+            <span class="label label-mint pull-right">New</span>
+        </span>
+    </a>
+</li>
+</ul>
+<div class="mainnav-widget">
+    <div class="show-small">
+        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+            <i class="fa fa-desktop"></i>
+        </a>
+    </div>
+    <div id="demo-wg-server" class="hide-small mainnav-widget-content">
+        <ul class="list-group">
+            <li class="list-header pad-no pad-ver">Product Status</li>
+            <li class="mar-btm">
+                <span class="label label-purple pull-right">75%</span>
+                <p>License Period</p>
+                <div class="progress progress-sm">
+                    <div class="progress-bar progress-bar-purple" style="width: 75%;">
+                        <span class="sr-only">75%</span>
+                    </div>
+                </div>
+            </li>
+            <li class="pad-ver">
+                <a href="javascript:showSideAdminPages('lic_details.html?opt=2','View Details');" class="btn btn-success btn-bock">View Details</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!--================================-->
+<!--End menu-->
+
+</div>
+</nav>
+<!--===================================================-->
+<!--END MAIN NAVIGATION-->
+<!--ASIDE-->
+<!--===================================================-->
+<aside id="aside-container">
+    <div id="aside">
+        <div class="nano">
+            <div class="nano-content">
+
+                <!--Nav tabs-->
+                <!--================================-->
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a href="#demo-asd-tab-1" data-toggle="tab">
+                            <i class="fa fa-comments"></i>
+                            <span class="badge badge-purple">7</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#demo-asd-tab-2" data-toggle="tab">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#demo-asd-tab-3" data-toggle="tab">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!--================================-->
+                <!--End nav tabs-->
+                <!-- Tabs Content -->
+                <!--================================-->
+                <div class="tab-content">
+
+                    <!--First tab (Contact list)-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <div class="tab-pane fade in active" id="demo-asd-tab-1">
+                        <h4 class="pad-hor text-thin">
+                            <span class="pull-right badge badge-warning">3</span> Messages
+                        </h4>
+
+                        <!--Family-->
+                        <div class="list-group bg-trans">
+                            <a href="#" class="list-group-item">
+                                <div class="media-left">
+                                    <img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-lg">Stephen Tran</div>
+                                    <span class="text-muted">Availabe</span>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <div class="media-left">
+                                    <img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-lg">Brittany Meyer</div>
+                                    <span class="text-muted">I think so</span>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <div class="media-left">
+                                    <img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+                                </div>
+                                <div class="media-body">
+                                    <div class="text-lg">Donald Brown</div>
+                                    <span class="text-muted">Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <hr>
+                    </div>
+
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End first tab (Contact list)-->
+                    <!--Second tab (Custom layout)-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <div class="tab-pane fade" id="demo-asd-tab-2">
+
+                        <!--Simple Menu-->
+                        <div class="list-group bg-trans">
+                            <a href="#" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+                            <a href="#" class="list-group-item">My Profile</a>
+                            <a href="#" class="list-group-item">My Activity</a>
+                            <hr>
+                            <a href="#" class="list-group-item">License Details</a>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="text-center">
+                            Questions?
+                            <p class="text-lg text-semibold">(202) 674-3435 </p>
+                        </div>
+                    </div>
+                    <!--End second tab (Custom layout)-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--Third tab (Settings)-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <div class="tab-pane fade" id="demo-asd-tab-3">
+                        <ul class="list-group bg-trans">
+                            <li class="list-header">
+                                <h4 class="text-thin">Account Settings</h4>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right">
+                                    <input class="demo-switch" type="checkbox" checked>
+                                </div>
+                                <p>Login to Search</p>
+                                <small class="text-muted">Take me directly to Search as default when I login.</small>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right">
+                                    <input class="demo-switch" type="checkbox" checked>
+                                </div>
+                                <p>Alert License Periods</p>
+                                <small class="text-muted">Warn me when my license is to expire in 15 days.</small>
+                            </li>
+                        </ul>
+
+
+
+                        <hr>
+
+                        <h4 class="pad-hor text-thin">Task Progress</h4>
+                        <div class="pad-all">
+                            <p>My Job Progress</p>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
+                            </div>
+                            <small class="text-muted">15% Completed</small>
+                        </div>
+                        <div class="pad-hor">
+                            <p>Queue Size</p>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
+                            </div>
+                            <small class="text-muted">#Jobs before me</small>
+                        </div>
+
+                    </div>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--Third tab (Settings)-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+<!--===================================================-->
+<!--END ASIDE-->
+
+</div>
+
+
+
+<!-- FOOTER -->
+<!--===================================================-->
+<footer id="footer">
+
+    <!-- Visible when footer positions are fixed -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="show-fixed pull-right">
+        <ul class="footer-list list-inline">
+            <li>
+                <p class="text-sm">Approved Users</p>
+                <div class="progress progress-sm progress-light-base">
+                    <div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+                </div>
+            </li>
+
+            <li>
+                <p class="text-sm">INTELLI Discovery Jobs Status</p>
+                <div class="progress progress-sm progress-light-base">
+                    <div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+                </div>
+            </li>
+            <li>
+                <button class="btn btn-sm btn-dark btn-active-success">View Task Queue</button>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <!-- Visible when footer positions are static -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="hide-fixed pull-right pad-rgt" id="divVersion"></div>
+    <p class="pad-lft">
+        &#0169; 2017 FloKapture Solutions. All Rights Reserved.
+    </p>
+
+
+</footer>
+<!--===================================================-->
+<!-- END FOOTER -->
+<!-- SCROLL TOP BUTTON -->
+<!--===================================================-->
+<button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+<!--===================================================-->
+</div>
+<div class="container">
+    <div class="modal fade" id="div-approve-freeze-project" role="dialog">
+        <div class="modal-dialog" style="width: 45%;">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Approve Project Freeze</h4>
+                </div>
+                <div class="modal-body" style="padding: 16px 35px; height: 250px;">
+                    <div class="col-md-12">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    Are you sure you want to Approve this project to Freeze for Audit?
+                                </td>
+                            </tr>
+                            <tr> <td style="height: 5px;">&nbsp;</td> </tr>
+                            <tr>
+                                <td>
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 15%;"><a href="#" onclick="approveFreeze('Approved');"><button class="btn btn-mint">Approve</button></a></td>
+                                            <td><a href="#" onclick="approveFreeze('Declined');"><button class="btn btn-danger">Decline</button></a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <input id="project-freeze-id" type="hidden" value="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal fade" id="freeze-tags-dialog" role="dialog">
+        <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Freeze Associated Items (Tags)</h4>
+                </div>
+                <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 20%;">
+                                Project Selected:
+                            </td>
+                            <td id="td-selected-project"></td>
+                        </tr>
+                        <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                        <tr>
+                            <td>
+                                Comments:
+                            </td>
+                            <td>
+                                <textarea rows="5" style="margin: 0; width: 400px; height: 70px;" id="txtComments" placeholder="Freeze Comments(optional)"></textarea>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" style="height: 2px;">&nbsp;</td></tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 15%;">
+                                            <button onclick="freezeSelectedProject();" id="btn-freeze-project" class="btn btn-primary">Freeze</button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="modal fade" id="DivShowNotes" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Class)</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;">
+                        <table class="table table-striped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Current Name:</td>
+                                    <td>
+                                        <input type="text" class="form-control" disabled="disabled" id="currentClassName" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Business Name:</td>
+                                    <td>
+                                        <input type="text" class="form-control" id="businessClassName" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Description:</td>
+                                    <td>
+                                        <textarea rows="5" class="form-control" id="businessClassDescription"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <button type="button" id="btnUpdateFilesRecord" class="btn btn-primary btn-labeled fa fa-arrow-down">Update Details</button>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="showMethodDialog" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Method)</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;">
+                        <table class="table table-striped table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Current Name:</td>
+                                    <td>
+                                        <input type="text" class="form-control" id="txtCurrentMethodName" disabled="disabled" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Business Name:</td>
+                                    <td>
+                                        <input type="text" class="form-control" id="txtMethodBusinessName" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Description:</td>
+                                    <td>
+                                        <textarea rows="5" class="form-control" id="txtBusinessDescription"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <button type="button" id="Button1" class="btn btn-primary btn-labeled fa fa-arrow-down">Update Details</button>
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Left Panel-->
+<div class="container">
+    <div class="modal fade" id="dvDownloadInventory" role="dialog">
+        <div class="modal-dialog" style="width: 570px; margin-top: 10px; ">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: -1px 10px 30px 10px; text-align: center;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Inventory</h4>
+                </div>
+                <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; display: none;">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="checkbox" style="padding-top: 4px;">
+                                    <label class="form-checkbox form-icon form-text">
+                                        <input type="checkbox" value="" id="chkSkipSame"><strong>Hide Redundant Object (File) Names </strong>
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <div class="checkbox" style="padding-top: 4px;">
+                                    <label class="form-checkbox form-icon form-text">
+                                        <input type="checkbox" value="" id="chkBusinessSame"><strong>Show Business Names</strong>
+                                    </label>
+                                </div>
+                            </td>
+
+                            <td>&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                            <td>
+                                <!--<button onclick="downloadInventory();" id="btnDownInventoryPopup" class="btn btn-primary">Download</button>-->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="modal fade" id="divCustomWorkflow" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 670px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Custom workflow</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="Div3">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td colspan="2">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td style="width: 25%;">Search Object:</td>
+                                            <td>
+                                                <input type="text" id="txtSearch" placeholder="Search" class="form-control" />
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <button type="button" class="btn btn-mint" id="btnSearchObjects">Search </button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%;">
+                                    Select:
+                                </td>
+                                <td>
+                                    <select name="selectIndexWorkFlow" id="ddlJclName" style="width: 100%;" class="form-control"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Name:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowName" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Workflow Description:
+                                </td>
+                                <td>
+                                    <input type="text" id="txtWorkFlowDesc" class="form-control" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 4px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%"></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-labeled fa fa-arrow-up" id="btnSaveWorkflowName">Save </button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                <button type="submit" style="height: 30px;" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td id="dvError101"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 15px;"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-striped table-bordered" style="display: none;">
+                            <tr>
+                                <td>
+                                    <textarea id="treeViewSource1" style="width: 614px; height: 500px; overflow-y: scroll; overflow-x: scroll;" class="form-control"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" style="margin: 10px;" data-dismiss="modal" id="btnSaveViewSource" class="btn btn-mint" value="Save" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tdError101"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="dvSystemDescription" role="dialog">
+            <div class="modal-dialog" style="width: 550px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="H1"><span class="fa fa-briefcase" style="margin-right: 10px;"></span>System Description </h4>
+                    </div>
+                    <div class="modal-body" style="padding: 40px 50px;">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td colspan="3" style="padding-left: 2px;">
+                                    Enter Description:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>&nbsp;&nbsp;</td>
+                                <td>
+                                    <textarea rows="6" class="form-control" id="txtSystemDescription" placeholder="Enter Description"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div>
+                                        <button type="button" style="margin: 9px; margin-left: 24px;" class="btn btn-primary btn-labeled fa fa-arrow-down" id="btnSaveSystemDescription">Save </button>
+                                        &nbsp; &nbsp;
+                                        <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                        <!--<button style="margin-top: 10px; height: 29px;" data-dismiss="modal" id="Button2" class="btn btn-mint  fa fa-close">Cancel</button>-->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="tdError102"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="modal fade" id="showDictionaryDialog" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 820px;">
+                    <div class="modal-header" style="padding: 15px 10px 15px 10px; text-align: center;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4><span class="fa fa-briefcase" style="margin-right: 10px;"></span>Business Details (Classes, Methods/Functions)</h4>
+                    </div>
+                    <div class="modal-body" style="padding: 5px 20px;" id="modalBody">
+                        <div style="overflow: scroll; height: 500px;">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td>Object Name</td>
+                                        <td>Type</td>
+                                        <td>Business Name</td>
+                                        <td>Business Description</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="objectDictionaryData">
+                                    <tr>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <button type="button" onclick="updateBusinessDetails();" id="btnUpdateBusinessDetails" class="btn btn-primary btn-labeled fa fa-arrow-down">Submit</button>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal"><span class="fa fa-remove" style="margin-right: 10px;"></span>Close</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td colspan="2" id="tdMessage"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="scripts/objectdictionary.js"></script>
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="plugins/fast-click/fastclick.min.js"></script>
+
+
+    <!--Nifty Admin [ RECOMMENDED ]-->
+    <script src="js/nifty.min.js"></script>
+
+
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="plugins/switchery/switchery.min.js"></script>
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+
+    <!--Morris.js [ OPTIONAL ]-->
+    <!--<script src="plugins/morris-js/morris.min.js"></script>-->
+    <script src="plugins/morris-js/morris.js"></script>
+    <script src="plugins/morris-js/morris.min.js"></script>
+    <script src="plugins/morris-js/raphael-js/raphael.min.js"></script>
+
+
+    <!--Sparkline [ OPTIONAL ]-->
+    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+
+    <!--Flot Chart [ OPTIONAL ]-->
+    <script src="plugins/flot-charts/jquery.flot.min.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.min.js"></script>
+
+
+    <!--Flot Pie Chart [ OPTIONAL ]-->
+    <script src="plugins/flot-charts/jquery.flot.pie.min.js"></script>
+
+
+
+
+
+    <!--Easy Pie Chart [ OPTIONAL ]-->
+    <script src="plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
+
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="js/demo/nifty-demo.min.js"></script>
+
+
+    <!--Charts [ SAMPLE ]-->
+    <script src="js/demo/chartsv1.js"></script>
+    <script src="scripts/version.js"></script>
+    <script src="scripts/leftSitePanel.js"></script>
+</body>
+</html>

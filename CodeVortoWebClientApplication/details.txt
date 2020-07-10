@@ -1,0 +1,28 @@
+http://www.codeproject.com/Articles/12109/Statistical-parsing-of-English-sentences
+
+https://sharpnlp.codeplex.com/
+
+https://sergey-tihon.github.io/Stanford.NLP.NET/
+
+
+http://www.codeproject.com/Articles/29755/Introducing-Lucene-Net
+
+http://www.thebestcsharpprogrammerintheworld.com/blogs/How-to-create-and-search-a-Lucene-Net-index-in-4-simple-steps-using-c-sharp-Step-1.aspx
+
+
+
+
+Chat Now
+
+
+Reviewing email can be an incredibly effective cure for insomnia, but don’t snooze through common problems often revealed in emails: 
+Undisclosed client complaints
+Insider trading or selective disclosure
+Distribution of marketing materials not conforming to the Advisers Act, the rules promulgated thereunder, or applicable no-action letters (e.g., Clover Capital)
+Promissory claims or guarantory performance language
+Suspicious emails from clients who may have had their email account hacked
+Undisclosed matters requiring disclosure on an advisor’s U4
+Breaches of non-public personal information or failure to follow privacy policies
+Failure to place the client’s best interests first or other fiduciary failings
+
+ view.printStudentDetails(model.getName(), model.getRollNo());
