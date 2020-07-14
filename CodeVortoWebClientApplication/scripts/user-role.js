@@ -67,6 +67,12 @@
             });
         });
     };
-    
+
+    UserRole.prototype.getTabMenu = async function() {
+        var url = baseAddress + "RoleMaster/GetAllTab";
+        var response = await this._ajaxRequest("GET", "", url);
+        return response;
+    };
+
     return new UserRole();
 }));

@@ -70,13 +70,53 @@
                     ]
                 });
         }).catch(function (e) { console.log(e); });
+
+        userRole.getTabMenu().then(function (d) {
+            var source =
+            {
+                dataType: "json",
+                dataFields: [
+                    { name: "GraphId", type: "string" },
+                    { name: "ParentId", type: "string" },
+                    { name: "GraphName", type: "string" },
+                    { name: "NodeId", type: "integer" },
+                    { name: "TabId", type: "integer" }
+                ],
+                hierarchy:
+                {
+                    keyDataField: { name: "GraphId" },
+                    parentDataField: { name: "ParentId" }
+                },
+                id: "GraphId",
+                localdata: d
+            };
+            var dataAdapter1 = new $.jqx.dataAdapter(source);
+            $("#tabMenuItems").jqxTreeGrid(
+                {
+                    width: "100%",
+                    checkboxes: true,
+                    source: dataAdapter1,
+                    hierarchicalCheckboxes: true,
+                    showHeader: false,
+                    sortable: true,
+                    columns: [
+                        { text: "GraphName", dataField: "GraphName" }
+                    ]
+                });
+        }).catch(function (e) { console.log(e); });
     });
 
     $("#btnSaveRole").click(function () {
         var checkedRows = $("#leftMenuItems").jqxTreeGrid("getCheckedRows");
+        var allCheckTabs = $("#tabMenuItems").jqxTreeGrid("getCheckedRows");
         var menuMaster = {};
+        var tabs = [];
+        allCheckTabs.forEach(function(row) {
+            tabs.push(row.GraphId);
+        });
         menuMaster.LstRoleWiseMenuMaster = [];
         menuMaster.RoleName = $("#txtRoleName").val();
+        menuMaster.Tabs = tabs;
         checkedRows.forEach(function (row) {
             if (row.MainMenuId === -1 && row.SubMenuId === -1) return;
             menuMaster.LstRoleWiseMenuMaster.push({

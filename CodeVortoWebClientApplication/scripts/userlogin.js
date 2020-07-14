@@ -68,6 +68,7 @@ $(document).ready(function () {
                             UserRoleId: userInfo.RoleId,
                             AssignedProjects: userInfo.ProjectIds
                         };
+                        window.localStorage.setItem("tabs", JSON.stringify(userInfo.Tabs));
                         window.localStorage.setItem("login-user-info", JSON.stringify(loginUserInfo));
                         window.localStorage.setItem("userId", result[0].UserId);
                         window.localStorage.setItem("uName", result[0].UserName);

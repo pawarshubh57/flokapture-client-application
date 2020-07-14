@@ -18,8 +18,35 @@ $(document).on({
 });
 
 $(document).ready(function () {
+    const tabMaster = JSON.parse(window.localStorage.getItem("tabs"));
+    $("#li_1").hide();
+    $("#li_2").hide();
+    $("#li_4").hide();
+    $("#li-detailed-tagging").hide();
+    $("#li_3").hide();
+    $("#li_5").hide();
+    $("#li_6").hide();
+    $("#li_obj-doc").hide();
+    $("#li_obj-annotation").hide();
+    document.getElementById("tabCustomView").style.visibility = "initial";
+
+    var userInfo = JSON.parse(loginUserInfo);
+    /*
+    if (userInfo.UserRoleId === 1) {
+        $("#li-detailed-tagging").show();
+        $("#li_5").show();
+    } else {
+        $("#li-detailed-tagging").hide();
+        $("#li_5").hide();
+    }
+    */
+
+    tabMaster.forEach(function (tab) {
+        const tabName = tab.TabName;
+        $(`#${tabName}`).show();
+    });
+
     $("#demo-toggle-aside").click(function () {
-        // $("#container").attr("class", "effect mainnav-lg aside-in");
         if ($("#container").hasClass("aside-in")) {
             $("#container").removeClass("aside-in");
         } else {
@@ -1233,14 +1260,6 @@ function showData(dvCtrl) {
 
 function funBtnSubmit() {
     document.getElementById("tdErr2").innerHTML = "";
-    var userInfo = JSON.parse(loginUserInfo);
-    if (userInfo.UserRoleId === 1) {
-        $("#li-detailed-tagging").show();
-        $("#li_5").show();
-    } else {
-        $("#li-detailed-tagging").hide();
-        $("#li_5").hide();
-    }
     // $("#jqxTagFormattedView").html("").css({ "class": "", style: "" });
     $("#jqxTagFormattedView").jqxGrid(
         {
@@ -1659,7 +1678,7 @@ function callTreeView() {
                             { name: "ParentId", type: "string" },
                             { name: "GraphName", type: "string" },
                             { name: "ActualStatementId", type: "string" },
-                            // s{ name: "NodeId", type: "integer" },
+                            { name: "GroupId", type: "integer" },
                             { name: "StatementId", type: "integer" },
                             { name: "BaseCommandId", type: "integer" }
                         ],
@@ -1696,13 +1715,13 @@ function callTreeView() {
                                             { name: "GraphId", type: "string" },
                                             { name: "ParentId", type: "string" },
                                             { name: "GraphName", type: "string" },
-                                            // { name: "ActualStatementId", type: "string" },
+                                            { name: "GroupId", type: "integer" },
                                             { name: "NodeId", type: "integer" },
                                             { name: "StatementId", type: "integer" },
                                             { name: "BaseCommandId", type: "integer" }
                                         ],
                                         localData: result,
-                                        
+
                                         hierarchy:
                                         {
                                             keyDataField: { name: "GraphId" },
@@ -1717,8 +1736,12 @@ function callTreeView() {
                                             }
                                         });
                                     dataAdapter.dataBind();
-                                    // var tmpGraphId = expandedRecord.records.shift().GraphId;
-                                    // $("#jqTreeFirstTab").jqxTreeGrid("deleteRow", tmpGraphId);
+                                    var elements = expandedRecord.records.filter(function (ele) {
+                                        return ele.GroupId === 90909090; // && ele.ParentId === expandedRecord.GraphId;
+                                    });
+                                    elements.forEach(function (ele) {
+                                        $("#jqTreeFirstTab").jqxTreeGrid("deleteRow", ele.GraphId);
+                                    });
                                 }
                             });
                         },
