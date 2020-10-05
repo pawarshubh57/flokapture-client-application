@@ -22,6 +22,10 @@
                     $("#tdAssociatedMenu").html("");
                     $("#tdAssociatedMenu").html(roleData);
                 }).catch(function (e) { console.log(e); });
+                userRole.getTabDetails(roleId).then(function(tabData) {
+                    $("#tdAssociatedTabs").html("");
+                    $("#tdAssociatedTabs").html(tabData);
+                }).catch(function(e) { console.log(e);  });
             });
             headerRow.append(roleType);
             headerRow.append($("<td />").append($("<span />").attr({ "class": "label label-table label-success" }).html(status)));
@@ -112,7 +116,7 @@
         var menuMaster = {};
         var tabs = [];
         allCheckTabs.forEach(function(row) {
-            tabs.push(row.GraphId);
+            tabs.push(row.TabId);
         });
         menuMaster.LstRoleWiseMenuMaster = [];
         menuMaster.RoleName = $("#txtRoleName").val();
@@ -178,15 +182,60 @@
                 $("#DvEditRoleDetails").jqxTreeGrid("checkRow", graphId);
             });
         }).catch(function (err) { console.log(err); });
+        userRole.getTabMenuHierarchy(roleId).then(function (d) {
+            var source =
+            {
+                dataType: "json",
+                dataFields: [
+                    { name: "GraphId", type: "string" },
+                    { name: "ParentId", type: "string" },
+                    { name: "GraphName", type: "string" },
+                    { name: "NodeId", type: "integer" },
+                    { name: "TabId", type: "integer" }
+                ],
+                hierarchy:
+                {
+                    keyDataField: { name: "GraphId" },
+                    parentDataField: { name: "ParentId" }
+                },
+                id: "GraphId",
+                localdata: d
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            $("#DvEditTabDetails").jqxTreeGrid(
+                {
+                    width: "100%",
+                    checkboxes: true,
+                    source: dataAdapter,
+                    hierarchicalCheckboxes: true,
+                    showHeader: false,
+                    sortable: true,
+                    columns: [
+                        { text: "GraphName", dataField: "GraphName" }
+                    ]
+                });
+            d.forEach(function (rData) {
+                if (!rData.IsChecked) return;
+                var graphId = rData.GraphId;
+                if (graphId.indexOf("mainMenu-") > -1) return;
+                $("#DvEditTabDetails").jqxTreeGrid("checkRow", graphId);
+            });
+        }).catch(function (err) { console.log(err); });
     });
 
     $("#btnUpdateRoleDetails").click(function () {
         var checkedRows = $("#DvEditRoleDetails").jqxTreeGrid("getCheckedRows");
+        var allCheckTabs = $("#DvEditTabDetails").jqxTreeGrid("getCheckedRows");
+        var tabs = [];
+        allCheckTabs.forEach(function (row) {
+            tabs.push(row.TabId);
+        });
         var id = $("#hdnCurrentUserId").val();
         var roleId = parseInt(id);
         var menuMaster = {};
         menuMaster.LstRoleWiseMenuMaster = [];
         menuMaster.RoleName = $("#tdSelectedRoleName").val();
+        menuMaster.Tabs = tabs;
         checkedRows.forEach(function (row) {
             if (row.MainMenuId === -1 && row.SubMenuId === -1) return;
             menuMaster.LstRoleWiseMenuMaster.push({

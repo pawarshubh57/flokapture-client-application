@@ -888,6 +888,7 @@
     <Content Include="scripts\tag-category-values.js" />
     <Content Include="scripts\tag-master.js" />
     <Content Include="scripts\test-page.js" />
+    <Content Include="scripts\test.js" />
     <Content Include="scripts\toolTip.js" />
     <Content Include="scripts\jsPdf.js" />
     <Content Include="scripts\pdfExport.js" />
@@ -3066,6 +3067,7 @@
     <Content Include="task_queue.html" />
     <Content Include="template.html" />
     <Content Include="test-page.html" />
+    <Content Include="test.html" />
     <Content Include="TokenAuth.html" />
     <Content Include="ui-alerts-tooltips.html" />
     <Content Include="ui-buttons.html" />

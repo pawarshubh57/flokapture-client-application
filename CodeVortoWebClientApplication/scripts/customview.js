@@ -4,7 +4,9 @@ var projectId = getParameterByName("prjId");
 var userId = window.localStorage.getItem("userId");
 var loginUserInfo = window.localStorage.getItem("login-user-info");
 var fileId = getParameterByName("fileId");
+var languageId =  window.localStorage.getItem("languageId");
 var diagram = $.fn.floKaptureDiagram("diagram", false, "#FFFFFF");
+
 var nodesCount = 250;
 
 
@@ -19,32 +21,38 @@ $(document).on({
 
 $(document).ready(function () {
     const tabMaster = JSON.parse(window.localStorage.getItem("tabs"));
-    $("#li_1").hide();
-    $("#li_2").hide();
-    $("#li_4").hide();
-    $("#li-detailed-tagging").hide();
-    $("#li_3").hide();
-    $("#li_5").hide();
-    $("#li_6").hide();
-    $("#li_obj-doc").hide();
-    $("#li_obj-annotation").hide();
-    document.getElementById("tabCustomView").style.visibility = "initial";
+  
+   // ReSharper disable once ConditionIsAlwaysConst
+    if (tabMaster.length === 0 || tabMaster === null) {
 
-    var userInfo = JSON.parse(loginUserInfo);
-    /*
-    if (userInfo.UserRoleId === 1) {
+        $("#li_1").show();
+        $("#li_2").show();
+        $("#li_4").show();
         $("#li-detailed-tagging").show();
+        $("#li_3").show();
         $("#li_5").show();
+        $("#li_6").show();
+        $("#li_obj-doc").show();
+        $("#li_obj-annotation").show();
     } else {
+        $("#li_1").hide();
+        $("#li_2").hide();
+        $("#li_4").hide();
         $("#li-detailed-tagging").hide();
+        $("#li_3").hide();
         $("#li_5").hide();
+        $("#li_6").hide();
+        $("#li_obj-doc").hide();
+        $("#li_obj-annotation").hide();
+     
+        tabMaster.forEach(function (tab) {
+            if (tab.SubMenuId === 2) {
+                const tabName = tab.TabName;
+                $(`#${tabName}`).show();
+            }
+        });
     }
-    */
-
-    tabMaster.forEach(function (tab) {
-        const tabName = tab.TabName;
-        $(`#${tabName}`).show();
-    });
+    document.getElementById("tabCustomView").style.visibility = "initial";
 
     $("#demo-toggle-aside").click(function () {
         if ($("#container").hasClass("aside-in")) {
@@ -113,17 +121,20 @@ $(document).ready(function () {
 
     document.getElementById("dvWorkflowList").style.display = "none";
     document.getElementById("dvSearch").style.display = "none";
+    document.getElementById("divCallInternal").style.display = "none";
     $("#tabCustomView").hide();
     $('#tabCustomView a[href="#demo-tabs3-box-3"]').click(function () {
         $("#diagram").empty();
         $("#divDecisionChartHtmlTable").html("");
         document.getElementById("dvWorkflowList").style.display = "inline";
+        document.getElementById("divCallInternal").style.display = "inline";
         document.getElementById("dvSearch").style.display = "none";
         var item = $("#ddlSelectFiles").jqxComboBox("getSelectedItem");
         if (item) {
             var fileId = item.value;
             if (fileId === 0) return false;
             document.getElementById("dvWorkflowList").style.display = "inline-block";
+            document.getElementById("divCallInternal").style.display = "inline-block";
             document.getElementById("dvSearch").style.display = "none";
             chkDecisionMatrix();
         }
@@ -133,9 +144,16 @@ $(document).ready(function () {
     $('#tabCustomView a[href="#demo-tabs1-box-1"]').click(function () {
         loadFirstTabData();
     });
+    $('#tabCustomView a[href="#demo-tabs5-box-5-object-tags"]').click(function () {
+        document.getElementById("divCallInternal").style.display = "none";
+    });
+    $('#tabCustomView a[href="#demo-tabs6-object-annotations"]').click(function () {
+        document.getElementById("divCallInternal").style.display = "none";
+    });
 
     $('#tabCustomView a[href="#demo-tabs6-object-documents"]').click(function () {
         document.getElementById("tdError3").innerHTML = "";
+        document.getElementById("divCallInternal").style.display = "none";
         var pid = parseInt(projectId);
         var audit = {
             postData: {
@@ -496,6 +514,7 @@ function getMethodStatements(ctrl) {
                     localData: secondTab
                 };
 
+                  // ReSharper disable once InconsistentNaming
                 var dataAdapterSecondTab = new $.jqx.dataAdapter(sourceSecondTab);
                 $("#divSecTreeFormatMethodBlock").jqxTreeGrid(
                     {
@@ -1316,6 +1335,7 @@ function funBtnSubmit() {
     document.getElementById("descriptorDetails").style.display = "none";
 
     document.getElementById("dvWorkflowList").style.display = "none";
+    document.getElementById("divCallInternal").style.display = "none";
     document.getElementById("dvSearch").style.display = "inline-block";
     // document.getElementById("btnGoWorkflow").style.display = "inline";
     var item = $("#ddlSelectFiles").jqxComboBox("getSelectedItem");
@@ -1345,7 +1365,7 @@ function funBtnSubmit() {
                             value: data[i].StatementId
                         });
                     }
-                    $("#ddlFileWorkflows").jqxComboBox({ source: html, width: "350", height: "25px" });
+                    $("#ddlFileWorkflows").jqxComboBox({ source: html, width: "250", height: "25px" });
                     $("#ddlFileWorkflows").jqxComboBox("selectItem", html[0]);
                     $("#tabCustomView").show();
                     $("#treeAssociationsTab").jqxTreeGrid("clear");
@@ -1371,6 +1391,7 @@ function funBtnSubmit() {
 /* First Tab*/
 function loadFirstTabData() {
     document.getElementById("dvWorkflowList").style.display = "none";
+    document.getElementById("divCallInternal").style.display = "none";
     document.getElementById("dvSearch").style.display = "inline-block";
     var item = $("#ddlSelectFiles").jqxComboBox("getSelectedItem");
     var fileId = item.value;
@@ -1587,6 +1608,7 @@ function changeSecondTab() {
         return false;
     });
     document.getElementById("dvWorkflowList").style.display = "none";
+    document.getElementById("divCallInternal").style.display = "none";
     document.getElementById("dvSearch").style.display = "none";
     return true;
 }
@@ -1661,110 +1683,182 @@ function callTreeView() {
         var treeFun = document.getElementById("chkTreeView");
         var parentTree = treeFun.parentElement;
         $(parentTree).prop("className", "form-checkbox form-icon form-text active");
-        jQuery.ajax({
-            type: "GET",
-            // url: baseAddress + "CustomView/GetPseudoCodeCustomTreeView?projectId=" + projectId + "&fileId=" + fileId + "&pseudoCode=" + chkPseudo,
-            url: baseAddress + "TestCobol/GetPseudoCodeCustomTreeView?projectId=" + projectId + "&fileId=" + fileId + "&pseudoCode=" + chkPseudo,
-            success: function (data) {
-                $body.removeClass("loading");
-                if (data !== null && typeof data !== "undefined") {
-                    var dataSource = data;
-                    // data.forEach(f => console.log(f.GraphId));
-                    var sourceSecondTab =
-                    {
-                        dataType: "json",
-                        dataFields: [
-                            { name: "GraphId", type: "string" },
-                            { name: "ParentId", type: "string" },
-                            { name: "GraphName", type: "string" },
-                            { name: "ActualStatementId", type: "string" },
-                            { name: "GroupId", type: "integer" },
-                            { name: "StatementId", type: "integer" },
-                            { name: "BaseCommandId", type: "integer" }
-                        ],
-                        hierarchy:
+        var langId = parseInt(languageId);
+        if (langId === 4) {
+            jQuery.ajax({
+                type: "GET",
+                url: baseAddress +
+                    "TestCobol/GetPseudoCodeCustomTreeView?projectId=" +
+                    projectId +
+                    "&fileId=" +
+                    fileId +
+                    "&pseudoCode=" +
+                    chkPseudo,
+                beforeSend: function() {
+                    $body.addClass("loading");
+                },
+                success: function(data) {
+                    if (data !== null && typeof data !== "undefined") {
+                        var dataSource = data;
+                        // data.forEach(f => console.log(f.GraphId));
+                        var sourceSecondTab =
                         {
-                            keyDataField: { name: "GraphId" },
-                            parentDataField: { name: "ParentId" }
-                        },
-                        id: "GraphId",
-                        localData: dataSource
-                    };
-                    var dataAdapterSecondTab = new $.jqx.dataAdapter(sourceSecondTab);
-                    $("#jqTreeFirstTab").jqxTreeGrid({
-                        width: "100%",
-                        height: 850,
-                        source: dataAdapterSecondTab,
-                        showHeader: false,
-                        sortable: true,
-                        columns: [
-                            { text: "GraphName", dataField: "GraphName" }
-                        ],
-                        virtualModeCreateRecords: function (expandedRecord, done) {
-                            var bId = expandedRecord.BaseCommandId;
-                            if (bId !== 5) done(expandedRecord.records);
-                            var sId = expandedRecord.StatementId;
-                            var gId = expandedRecord.GraphId;
-                            $.ajax({
-                                url: baseAddress + "TestCobol/GetCallInternalBlock?projectId=" + projectId + "&fileId=" + fileId + "&pseudoCode=" + chkPseudo + "&statementId=" + sId + "&graphId=" + gId,
-                                success: function (result) {
-                                    var source =
-                                    {
-                                        dataType: "json",
-                                        dataFields: [
-                                            { name: "GraphId", type: "string" },
-                                            { name: "ParentId", type: "string" },
-                                            { name: "GraphName", type: "string" },
-                                            { name: "GroupId", type: "integer" },
-                                            { name: "NodeId", type: "integer" },
-                                            { name: "StatementId", type: "integer" },
-                                            { name: "BaseCommandId", type: "integer" }
-                                        ],
-                                        localData: result,
+                            dataType: "json",
+                            dataFields: [
+                                { name: "GraphId", type: "string" },
+                                { name: "ParentId", type: "string" },
+                                { name: "GraphName", type: "string" },
+                                { name: "ActualStatementId", type: "string" },
+                                { name: "GroupId", type: "integer" },
+                                { name: "StatementId", type: "integer" },
+                                { name: "BaseCommandId", type: "integer" }
+                            ],
+                            hierarchy:
+                            {
+                                keyDataField: { name: "GraphId" },
+                                parentDataField: { name: "ParentId" }
+                            },
+                            id: "GraphId",
+                            localData: dataSource
+                        };
+                        var dataAdapterSecondTab = new $.jqx.dataAdapter(sourceSecondTab);
+                        $("#jqTreeFirstTab").jqxTreeGrid({
+                            width: "100%",
+                            height: 850,
+                            source: dataAdapterSecondTab,
+                            showHeader: false,
+                            sortable: true,
+                            columns: [
+                                { text: "GraphName", dataField: "GraphName" }
+                            ],
+                            virtualModeCreateRecords: function(expandedRecord, done) {
+                                var bId = expandedRecord.BaseCommandId;
+                                if (bId !== 5) done(expandedRecord.records);
+                                var sId = expandedRecord.StatementId;
+                                var gId = expandedRecord.GraphId;
+                                $.ajax({
+                                    url: baseAddress +
+                                        "TestCobol/GetCallInternalBlock?projectId=" +
+                                        projectId +
+                                        "&fileId=" +
+                                        fileId +
+                                        "&pseudoCode=" +
+                                        chkPseudo +
+                                        "&statementId=" +
+                                        sId +
+                                        "&graphId=" +
+                                        gId,
+                                    success: function(result) {
+                                        var source =
+                                        {
+                                            dataType: "json",
+                                            dataFields: [
+                                                { name: "GraphId", type: "string" },
+                                                { name: "ParentId", type: "string" },
+                                                { name: "GraphName", type: "string" },
+                                                { name: "GroupId", type: "integer" },
+                                                { name: "NodeId", type: "integer" },
+                                                { name: "StatementId", type: "integer" },
+                                                { name: "BaseCommandId", type: "integer" }
+                                            ],
+                                            localData: result,
 
-                                        hierarchy:
-                                        {
-                                            keyDataField: { name: "GraphId" },
-                                            parentDataField: { name: "ParentId" }
-                                        },
-                                        id: "GraphId"
-                                    };
-                                    var dataAdapter = new $.jqx.dataAdapter(source,
-                                        {
-                                            loadComplete: function () {
-                                                done(dataAdapter.records);
-                                            }
+                                            hierarchy:
+                                            {
+                                                keyDataField: { name: "GraphId" },
+                                                parentDataField: { name: "ParentId" }
+                                            },
+                                            id: "GraphId"
+                                        };
+                                        var dataAdapter = new $.jqx.dataAdapter(source,
+                                            {
+                                                loadComplete: function() {
+                                                    done(dataAdapter.records);
+                                                }
+                                            });
+                                        dataAdapter.dataBind();
+                                        var elements = expandedRecord.records.filter(function(ele) {
+                                            return ele.GroupId ===
+                                                90909090; // && ele.ParentId === expandedRecord.GraphId;
                                         });
-                                    dataAdapter.dataBind();
-                                    var elements = expandedRecord.records.filter(function (ele) {
-                                        return ele.GroupId === 90909090; // && ele.ParentId === expandedRecord.GraphId;
-                                    });
-                                    elements.forEach(function (ele) {
-                                        $("#jqTreeFirstTab").jqxTreeGrid("deleteRow", ele.GraphId);
-                                    });
-                                }
-                            });
-                        },
-                        virtualModeRecordCreating: function (record) {
-                            record.BaseCommandId === 5 ? record.leaf = false : record.leaf = true;
-                        }
-                    });
-                    /*
-                         $("#jqTreeFirstTab").on("rowExpand", function (event) {
-                             var $element = $(event.args.element);
-                             var children = $element.find("li:first");
-
-                             if (children.length > 0) return;
-                         });
-                       */
-                    document.getElementById("divFirstNew").style.display = "none";
-                    document.getElementById("divFirstOld").style.display = "inline";
+                                        elements.forEach(function(ele) {
+                                            $("#jqTreeFirstTab").jqxTreeGrid("deleteRow", ele.GraphId);
+                                        });
+                                    }
+                                });
+                            },
+                            virtualModeRecordCreating: function(record) {
+                                record.BaseCommandId === 5 ? record.leaf = false : record.leaf = true;
+                            }
+                        });
+                        /*
+                             $("#jqTreeFirstTab").on("rowExpand", function (event) {
+                                 var $element = $(event.args.element);
+                                 var children = $element.find("li:first");
+    
+                                 if (children.length > 0) return;
+                             });
+                           */
+                        document.getElementById("divFirstNew").style.display = "none";
+                        document.getElementById("divFirstOld").style.display = "inline";
+                    }
+                },
+                complete: function() {
+                    $body.removeClass("loading");
+                },
+                error: function() {
+                    $body.removeClass("loading");
                 }
-            },
-            error: function () {
-                $body.removeClass("loading");
-            }
-        });
+            });
+        } else {
+            jQuery.ajax({
+                type: "GET",
+                url: baseAddress + "CustomView/GetPseudoCodeCustomTreeView?projectId=" + projectId + "&fileId=" + fileId + "&pseudoCode=" + chkPseudo,
+                success: function (data) {
+                    $body.removeClass("loading");
+                    if (data !== null) {
+                        var dataSource = data;
+                        var sourceSecondTab =
+                        {
+                            dataType: "json",
+                            dataFields: [
+                                { name: "GraphId", type: "string" },
+                                { name: "ParentId", type: "string" },
+                                { name: "GraphName", type: "string" },
+                                { name: "ActualStatementId", type: "string" },
+                                { name: "NodeId", type: "integer" },
+                                { name: "StatementId", type: "interger" }
+                            ],
+                            hierarchy:
+                            {
+                                keyDataField: { name: "GraphId" },
+                                parentDataField: { name: "ParentId" }
+                            },
+                            id: "GraphId",
+                            localData: dataSource
+                        };
+                        var dataAdapterSecondTab = new $.jqx.dataAdapter(sourceSecondTab);
+                        $("#jqTreeFirstTab")
+                            .jqxTreeGrid(
+                                {
+                                    width: "100%",
+                                    height: 850,
+                                    source: dataAdapterSecondTab,
+                                    showHeader: false,
+                                    sortable: true,
+                                    columns: [
+                                        { text: "GraphName", dataField: "GraphName" }
+                                    ]
+                                });
+                        document.getElementById("divFirstNew").style.display = "none";
+                        document.getElementById("divFirstOld").style.display = "inline";
+                    }
+                },
+                error: function () {
+                    $body.removeClass("loading");
+                }
+            });
+        }
     }
     else {
         callPseudoView();
@@ -1795,6 +1889,7 @@ function changeThirdTab() {
     if (fileId === 0) return false;
     document.getElementById("dvWorkflowList").style.display = "none";
     document.getElementById("dvSearch").style.display = "none";
+    document.getElementById("divCallInternal").style.display = "none";
     var projectId = getParameterByName("prjId");
     var chkBusiness = document.getElementById("chkBusinessFunction").checked;
     var chkpseudo = true; // document.getElementById("chkPseudoCodeFunction").checked;
@@ -2211,6 +2306,9 @@ function downloadDecisionChart() {
         var methodStatementId = workFlow.value;
         jQuery.ajax({
             type: "GET",
+            beforeSend: function () {
+                $body.addClass("loading");
+            },
             url: baseAddress + "CustomView/GetDecisionChartForWorkflowUpdated?projectId=" + projectId + "&fileId=" + fileId + "&statementId=" + methodStatementId + "&pseudoCode=" + chkDecision + "&opt=download&internalOption=" + internal,
             success: function (result) {
                 if (result !== null) {
@@ -2218,6 +2316,9 @@ function downloadDecisionChart() {
                     downloadFile(htmlResult);
                 }
                 return true;
+            },
+            complete: function () {
+                $body.removeClass("loading");
             }
         });
     }
@@ -2310,8 +2411,20 @@ function chkDecisionMatrix() {
                 ruleDataAndSummary = data;
             }
         });
-    $.get(baseAddress + "CustomView/GetDecisionChartView?projectId=" + projectId + "" +
-        "&fileId=" + fileId + "&statementId=" + methodStatementId + "&pseudoCode=" + chkDecision + "&opt=" + internal, function (tData) {
+    $.ajax({
+        url: baseAddress +
+            "CustomView/GetDecisionChartView?projectId=" +
+            projectId +
+            "" +
+            "&fileId=" +
+            fileId +
+            "&statementId=" +
+            methodStatementId +
+            "&pseudoCode=" +
+            chkDecision +
+            "&opt=" +
+            internal,
+        success: function (tData) {
             if (tData !== null) {
                 var loopCounter = 0;
                 var cnt = 0;
@@ -2325,75 +2438,115 @@ function chkDecisionMatrix() {
                     "<table id='tblAllAction'>";
                 var allStatements =
                     "<table id='tblAllStatements'>";
-                $.each(tData, function (key, value) {
-                    disp = loopCounter === 0 ? "inline" : "none";
-                    bgColor = loopCounter === 0 ? "#f4b084" : "#ffffff";
-                    var index = key.indexOf("#");
-                    var statement = key.substring(index + 1); // .split("#")[1];
-                    var statement1 = key.split("#")[0];
-                    var statementId = statement1.split("StmtId_")[1].split(" ")[0];
-                    var parentId = statement1.split("ParentId_")[1].split(" ")[0];
-                    var callFunction = "<i class='fa fa-pencil-square-o fa-2x' " +
-                        "onclick=funDefineBusinessRule('" + parentId + "'," + statementId + ");></i>";
-                    var title = "Create business functions";
-                    var nested = statement.indexOf("~") > -1 ? true : false;
-                    if (nested) {
-                        statement = statement.split("~")[0];
-                    }
-                    var n = nested === true ? "D" : "";
-                    var boolean = false;
-                    var loopEnd = false;
-                    var cellBgColor = "";
-                    for (var i = 0; i < ruleDataAndSummary.length; i++) {
-                        var statementRule = ruleDataAndSummary[i].StatementRuleReference;
-                        if (loopEnd) break;
-                        for (var j = 0; j < statementRule.length; j++) {
-                            if (statementRule[j].StatementIdFrom === parseInt(statementId)) {
-                                title = "Business Name: " + ruleDataAndSummary[i].RuleName;
-                                cellBgColor = "#3acaa1";
-                                loopEnd = true;
-                                break;
+                $.each(tData,
+                    function(key, value) {
+                        disp = loopCounter === 0 ? "inline" : "none";
+                        bgColor = loopCounter === 0 ? "#f4b084" : "#ffffff";
+                        var index = key.indexOf("#");
+                        var statement = key.substring(index + 1); // .split("#")[1];
+                        var statement1 = key.split("#")[0];
+                        var statementId = statement1.split("StmtId_")[1].split(" ")[0];
+                        var parentId = statement1.split("ParentId_")[1].split(" ")[0];
+                        var callFunction = "<i class='fa fa-pencil-square-o fa-2x' " +
+                            "onclick=funDefineBusinessRule('" +
+                            parentId +
+                            "'," +
+                            statementId +
+                            ");></i>";
+                        var title = "Create business functions";
+                        var nested = statement.indexOf("~") > -1 ? true : false;
+                        if (nested) {
+                            statement = statement.split("~")[0];
+                        }
+                        var n = nested === true ? "D" : "";
+                        var boolean = false;
+                        var loopEnd = false;
+                        var cellBgColor = "";
+                        for (var i = 0; i < ruleDataAndSummary.length; i++) {
+                            var statementRule = ruleDataAndSummary[i].StatementRuleReference;
+                            if (loopEnd) break;
+                            for (var j = 0; j < statementRule.length; j++) {
+                                if (statementRule[j].StatementIdFrom === parseInt(statementId)) {
+                                    title = "Business Name: " + ruleDataAndSummary[i].RuleName;
+                                    cellBgColor = "#3acaa1";
+                                    loopEnd = true;
+                                    break;
+                                }
                             }
                         }
-                    }
 
-                    allRules += "<tr onclick='showHideOther(" + loopCounter + "," + statementId + ");' id='tr_" +
-                        loopCounter + "' style='background-color: " + bgColor + "'><td class='cellInner'>" +
-                        statement.replace(" ( ", "(").replace(" ) ", ")") + "</td><td class='cellDependant'>" + n + "</td>" +
-                        /*
-                        "<td class='cellBusiness' style='background-color: " + cellBgColor + "'><span><a href='#'" +
-                        " title='" + title + "'>" + callFunction + "</a></span></td>"
-                        */
-                        "</tr>";
-                    allStatements += "<tr id='allStmtsTr_" + cnt + "' ><td id='allStmts_" + loopCounter + "' style='display:" +
-                        disp + ";' class='cellInnerStat'><table>";
-                    allActions += "<tr id='allActionsTr_" + cnt + "'><td id='allActions_" + loopCounter + "' style='display:" +
-                        disp + ";' class='cellInnerStat'><table>";
-                    allActionsElse += "<tr id='allActionsElseTr_" + cnt + "'><td id='allActionsElse_" + loopCounter +
-                        "' style='display:" + disp + ";' class='cellInnerStat'><table>";
-                    $.each(value, function (k, v) {
-                        cnt++;
-                        var stmt = v.replace(" ( ", "(").replace(" ) ", ")");
-                        if (stmt.indexOf("Else pId_") >= 0 || stmt.indexOf("ELSE pId_") >= 0) {
-                            boolean = true;
-                            stmt = stmt.split("pId_")[0];
-                        }
-                        allStatements += "<tr id='allStmtsTr_" + cnt +
-                            "' onclick='changeBg(this);'><td>" + stmt + "</td></tr>";
-                        if (boolean === false) {
-                            allActions += "<tr id='allActionsTr_" + cnt + "' onclick='changeBg(this);'><td>"
-                                + stmt + "</td></tr>";
-                        }
-                        if (boolean === true) {
-                            allActionsElse += "<tr id='allActionsElseTr_" + cnt +
-                                "' onclick='changeBg(this);'><td>" + stmt + "</td></tr>";
-                        }
+                        allRules += "<tr onclick='showHideOther(" +
+                            loopCounter +
+                            "," +
+                            statementId +
+                            ");' id='tr_" +
+                            loopCounter +
+                            "' style='background-color: " +
+                            bgColor +
+                            "'><td class='cellInner'>" +
+                            statement.replace(" ( ", "(").replace(" ) ", ")") +
+                            "</td><td class='cellDependant'>" +
+                            n +
+                            "</td>" +
+                            /*
+                            "<td class='cellBusiness' style='background-color: " + cellBgColor + "'><span><a href='#'" +
+                            " title='" + title + "'>" + callFunction + "</a></span></td>"
+                            */
+                            "</tr>";
+                        allStatements += "<tr id='allStmtsTr_" +
+                            cnt +
+                            "' ><td id='allStmts_" +
+                            loopCounter +
+                            "' style='display:" +
+                            disp +
+                            ";' class='cellInnerStat'><table>";
+                        allActions += "<tr id='allActionsTr_" +
+                            cnt +
+                            "'><td id='allActions_" +
+                            loopCounter +
+                            "' style='display:" +
+                            disp +
+                            ";' class='cellInnerStat'><table>";
+                        allActionsElse += "<tr id='allActionsElseTr_" +
+                            cnt +
+                            "'><td id='allActionsElse_" +
+                            loopCounter +
+                            "' style='display:" +
+                            disp +
+                            ";' class='cellInnerStat'><table>";
+                        $.each(value,
+                            function(k, v) {
+                                cnt++;
+                                var stmt = v.replace(" ( ", "(").replace(" ) ", ")");
+                                if (stmt.indexOf("Else pId_") >= 0 || stmt.indexOf("ELSE pId_") >= 0) {
+                                    boolean = true;
+                                    stmt = stmt.split("pId_")[0];
+                                }
+                                allStatements += "<tr id='allStmtsTr_" +
+                                    cnt +
+                                    "' onclick='changeBg(this);'><td>" +
+                                    stmt +
+                                    "</td></tr>";
+                                if (boolean === false) {
+                                    allActions += "<tr id='allActionsTr_" +
+                                        cnt +
+                                        "' onclick='changeBg(this);'><td>" +
+                                        stmt +
+                                        "</td></tr>";
+                                }
+                                if (boolean === true) {
+                                    allActionsElse += "<tr id='allActionsElseTr_" +
+                                        cnt +
+                                        "' onclick='changeBg(this);'><td>" +
+                                        stmt +
+                                        "</td></tr>";
+                                }
+                            });
+                        allStatements += "</td></tr></table>";
+                        allActions += "</td></tr></table>";
+                        allActionsElse += "</td></tr></table>";
+                        loopCounter++;
                     });
-                    allStatements += "</td></tr></table>";
-                    allActions += "</td></tr></table>";
-                    allActionsElse += "</td></tr></table>";
-                    loopCounter++;
-                });
                 allRules += "</table>";
                 allStatements += "</table>";
                 allActions += "</table>";
@@ -2402,8 +2555,15 @@ function chkDecisionMatrix() {
                 $("#tdAllActions")[0].innerHTML = allActions;
                 $("#tdAllActionsElse")[0].innerHTML = allActionsElse;
                 $("#tdAllStatements")[0].innerHTML = allStatements;
-            }
-        });
+            };
+        },
+        beforeSend: function () {
+            $body.addClass("loading");
+        },
+        complete: function() {
+            $body.removeClass("loading");
+        }
+    });
     var audit = {
         postData: {
             OptionUsed: "Object Search",
@@ -2743,6 +2903,7 @@ function changBgCss() {
 
     document.getElementById("dvWorkflowList").style.display = "inline";
     document.getElementById("dvSearch").style.display = "none";
+    document.getElementById("divCallInternal").style.display = "inline";
     var projectId = getParameterByName("prjId");
     var item = $("#ddlFileWorkflows").jqxComboBox("getSelectedItem");
     if (item) {

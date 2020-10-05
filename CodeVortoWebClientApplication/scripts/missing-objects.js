@@ -122,23 +122,13 @@ function exportGrid(tableName, fileName) {
     };
     for (var i = 0; i < rows.length; i++) {
         var row = [];
-        // var $row = $("<tr />");
         for (var j = 0; j < headerDetails.HeaderFields.length; j++) {
             var field = headerDetails.HeaderFields[j];
             var fieldName = rows[i][field];
-            // $row.append($("<td />").html(fieldName));
             row.push(fieldName);
         }
         htmlTable.Rows.push({ RowCells: row });
-        // tblData.append($row);
     }
-    /*
-    $("#tblData").excelExport({
-        tableName: "Missing-Objects",
-        fileName: "Missing-Objects.xls",
-        escape: false
-    });
-    */
     jQuery.ajax({
         type: "POST",
         url: baseAddress + "FileObjectMethodReference/ExportToExcelFromData",

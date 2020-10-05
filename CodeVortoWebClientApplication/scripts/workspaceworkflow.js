@@ -49,6 +49,32 @@ $(document).ready(function () {
     $("#mainnav-menu").html(finalMeunBar);
     var uName = window.localStorage.getItem("uName");
     document.getElementById("userName").innerHTML = uName;
+
+    const tabMaster = JSON.parse(window.localStorage.getItem("tabs"));
+
+    if (tabMaster.length === 0) {
+        $("#li_1").show();
+        $("#li_2").show();
+        $("#li_4").show();
+        $("#li_3").show();
+        $("#li_5").show();
+    } else {
+        $("#li_1").hide();
+        $("#li_2").hide();
+        $("#li_4").hide();
+        $("#li_3").hide();
+        $("#li_5").hide();
+        tabMaster.forEach(function (tab) {
+            if (tab.SubMenuId === 0) {
+                const tabName = tab.TabName;
+                if (tabName === "li_2") {
+                    document.getElementById("demo-tabs2-box-2").style.visibility = "initial";
+                }
+                $(`#${tabName}`).show();
+            }
+        });
+    }
+    document.getElementById("fourDataTabs").style.visibility = "initial";
 });
 
 

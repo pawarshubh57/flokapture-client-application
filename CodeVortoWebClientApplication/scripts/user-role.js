@@ -69,10 +69,23 @@
     };
 
     UserRole.prototype.getTabMenu = async function() {
-        var url = baseAddress + "RoleMaster/GetAllTab";
+        var url = baseAddress + "TabMaster/GetAllTab";
         var response = await this._ajaxRequest("GET", "", url);
         return response;
     };
 
+    UserRole.prototype.getTabDetails = function(roleId) {
+        var url = `${baseAddress}TabMaster/GetTabDetails?roleId=${roleId}`;
+        return new Promise((resolve, reject) => {
+            this._ajaxRequest("GET", null, url).then(function(role) {
+                resolve(role);
+            }).catch(function (e) { $("#tdAssociatedTabs").html(""); reject(e); });
+        });
+    };
+    UserRole.prototype.getTabMenuHierarchy = async function (roleId) {
+        var url = baseAddress + "TabMaster/EditTabs?roleId=" + roleId;
+        var menuHierarchy = await this._ajaxRequest("GET", null, url);
+        return menuHierarchy;
+    };
     return new UserRole();
 }));

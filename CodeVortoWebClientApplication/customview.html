@@ -200,7 +200,7 @@
                     <div id="page-content" style="clear: left; margin-top: -6px;">
                         <div id="FileDetails" class="panel panel-default">
                             <div class="panel-heading">
-                                <h4 id="pnlWorkflowName">
+                                <h4 id="pnlWorkflowName"style="width : 75%;">
                                     <div class="col-md-6" style="vertical-align: top; padding: 0; margin-top: 10px;">
                                         <div class="col-md-12" id="dvSearch" style="display: inline-block; padding: 0; vertical-align: top;">
                                             <div class="col-md-4">
@@ -235,15 +235,13 @@
                                             <div class="col-md-12" style="padding: 0;">
                                                 <table style="width: 100%;">
                                                     <tr>
-                                                        <td style="width:27%;">
+                                                        <td style="width:24%;">
                                                             <div id="ddlFileWorkflows"></div>
                                                         </td>
-                                                        <td style="padding-left: 2px;">
+                                                        <td style="padding-left: 1px;">
                                                             <button class="btn btn-mint" id="btnGoWorkflow" style="height: 26px;">Go</button>
                                                         </td>
-                                                        <td style="padding-left: 4px; font-weight: normal; font-size: 11px;">
-                                                            Include Call Internal  &nbsp; <input type="checkbox" id="chkInternal" class="js-switch" checked /> &nbsp; Exclude Call Internal
-                                                        </td>
+                                                        
                                                     </tr>
                                                 </table>
                                             </div>
@@ -255,52 +253,70 @@
                                         <!--visibility: hidden;-->
                                         <li id="li_1" class="active">
                                             <a data-toggle="tab" href="#demo-tabs1-box-1">
-                                                <i class="fa fa-file-code-o fa-lg"></i>
+                                                <!--<i class="fa fa-file-code-o fa-lg"></i>-->
+                                                <b>Source</b>
                                             </a>
                                         </li>
                                         <li id="li_2" onclick="changeSecondTab()">
                                             <a data-toggle="tab" href="#demo-tabs2-box-2">
-                                                <i class="fa fa-indent fa-lg"></i>
+                                                <!--<i class="fa fa-indent fa-lg"></i>-->
+                                                <b>Tree view</b>
                                             </a>
                                         </li>
                                         <li id="li_4">
                                             <a data-toggle="tab" href="#demo-tabs4-box-4" onclick="changeThirdTab();">
-                                                <i class="fa fa-list-ul fa-lg"></i>
+                                                <!--<i class="fa fa-list-ul fa-lg"></i>-->
+                                                <b>Pseudo Code</b> 
                                             </a>
                                         </li>
                                         <li id="li-detailed-tagging" title="Business Tagging">
                                             <a data-toggle="tab" href="#demo-detailed-tagging" onclick="changeThirdTab();">
-                                                <i class="fa fa-list-ul fa-clipboard"></i>
+                                                <!--<i class="fa fa-list-ul fa-clipboard"></i>-->
+                                                <b>Tags</b> 
                                             </a>
                                         </li>
                                         <li id="li_3">
                                             <a data-toggle="tab" href="#demo-tabs3-box-3">
-                                                <i class="fa fa-sitemap fa-lg"></i>
+                                                <b> Decision Table</b> 
+                                                <!--<i class="fa fa-sitemap fa-lg"></i>-->
                                             </a>
                                         </li>
                                         <li id="li_5" onclick="changBgCss();" style="cursor: auto;" title="Workflow Diagram">
                                             <a data-toggle="tab" href="#demo-tabs2-box-3">
-                                                <i class="fa fa-line-chart fa-lg"></i>
+                                                <b>Diagram</b> 
+                                                <!--<i class="fa fa-line-chart fa-lg"></i>-->
                                             </a>
                                         </li>
                                         <li id="li_6" title="Object Tags">
-                                            <a data-toggle="tab" href="#demo-tabs5-box-5">
-                                                <i class="fa fa-tags"></i>
+                                            <a data-toggle="tab" href="#demo-tabs5-box-5-object-tags">
+                                                <b>Object Tags</b>
+                                                <!--<i class="fa fa-tags"></i>-->
                                             </a>
                                         </li>
                                         <li id="li_obj-doc" title="Object Documents">
                                             <a data-toggle="tab" href="#demo-tabs6-object-documents">
-                                                <i class="fa fa-briefcase">
-                                                </i>
+                                                <b>Docs</b>
+                                                <!--<i class="fa fa-briefcase"></i>-->
                                             </a>
                                         </li>
                                         <li id="li_obj-annotation" title="Object Annotations">
                                             <a data-toggle="tab" href="#demo-tabs6-object-annotations">
-                                                <i class="fa fa-anchor">
-                                                </i>
+                                                <b>Annotate</b> 
+                                                <!--<i class="fa fa-anchor"></i>-->
                                             </a>
                                         </li>
                                     </ul>
+                                </div>
+                                <div class="col-md-12" id="divCallInternal" style="display: none;">
+                                    <div class="col-md-6" style="padding: 0;">
+                                        <table style="width: 100%; height: 50px;">
+                                            <tr>
+                                                <td style="padding-left: 2px; font-weight: normal; font-size: 11px;">
+                                                    Include Call Internal &nbsp; <input type="checkbox" id="chkInternal" class="js-switch" checked /> &nbsp;Exclude Call Internal
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                             <div class="panel-body" style="margin-bottom: 10px;">

@@ -70,7 +70,10 @@ $(document).ready(function () {
         $(".breadcrumb").append("<li><a href='index.html'>Home</a></li><li><a href='login.html'>Login</a></li>" + dashBoard + "<li class='active'><a href='user_management.html'>User Management</a></li>");
         return false;
     }
-
+    else if (part.includes("roles_admin.html")) {
+        $(".breadcrumb").append("<li><a href='index.html'>Home</a></li><li><a href='login.html'>Login</a></li>" + dashBoard + "<li class='active'><a href='roles_admin.html'>Role Management</a></li>");
+        return false;
+    }
         /*------------------ Project Admin -------------*/
     else if (part.includes("submit_new_projects.html")) {
         $(".breadcrumb").append("<li><a href='index.html'>Home</a></li><li><a href='login.html'>Login</a></li>" + dashBoard + "<li class='active'><a href='submit_new_projects.html'>Submit New Project</a></li>");
